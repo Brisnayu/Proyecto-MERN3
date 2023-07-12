@@ -1,0 +1,9 @@
+header {
+    height: 9vh;
+    display: flex;
+    padding: 0 2rem;
+    justify-content: flex-end;
+    align-items: center;
+    flex-wrap: wrap;
+    background-color: blue;
+  }

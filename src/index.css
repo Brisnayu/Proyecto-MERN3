@@ -1,0 +1,31 @@
+:root {
+  --color-primary: #424769;
+  --color-background: #2d3250;
+  --color-secondary: #f9b17a;
+  --color-terciary: #676f9d;
+  --color-contrast: whitesmoke;
+
+  --font-text: "Raleway", sans-serif;
+  --font-title: 'Permanent Marker', cursive;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+  outline: none;
+  color: inherit;
+  font-family: var(--font-text);
+}
+
+main {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color-background);
+}
