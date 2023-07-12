@@ -1,0 +1,20 @@
+.container-denied {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.container-denied > img {
+  opacity: 0.4;
+  border-radius: 50px;
+  width: 40%;
+}
+
+.container-denied > h2 {
+  font-family: var(--font-title);
+  letter-spacing: 6px;
+  color: var(--color-contrast);
+  font-size: 30px;
+}

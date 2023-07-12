@@ -1,9 +1,17 @@
 header {
-    height: 9vh;
-    display: flex;
-    padding: 0 2rem;
-    justify-content: flex-end;
-    align-items: center;
-    flex-wrap: wrap;
-    background-color: blue;
-  }
+  height: 10vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 5rem 0;
+  gap: 1rem;
+  color: var(--color-secondary);
+}
+
+header > h1 {
+  font-family: var(--font-title);
+  color: var(--color-contrast);
+  font-size: 50px;
+  letter-spacing: 30px;
+}
+
