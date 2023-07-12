@@ -1,14 +1,13 @@
 import { v4 as uuidv4 } from "uuid";
 import { ArrayGames } from "../../functions/ArrayGames";
 import CardGames from "../CardGames/CardGames";
-import Footer from "../Footer/Footer";
-import Header from "../Header/Header";
+import Footer from "../FooterSection/FooterSection";
+import Header from "../HeaderSection/HeaderSection";
 import "./Games.css";
 
 const Games = () => {
   return (
     <>
-    <Header />
       <div className="container-games">
         {ArrayGames.map((game) => 
         <CardGames 
@@ -16,11 +15,11 @@ const Games = () => {
             title={game.title}
             subtitle={game.subtitle}
             descrip={game.descrip}
+            link={game.link}
             src={game.src}
             alt={game.alt}
         />)}
       </div>
-      <Footer />
     </>
   );
 };

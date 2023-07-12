@@ -1,16 +1,16 @@
+import "./HeaderSection.css";
 import { useContext } from "react";
-import "./Header.css";
 import { UserContext } from "../../context/userContext";
 
-const Header = () => {
+const HeaderSection = ({ text }) => {
   const {user} = useContext(UserContext);
 
   return (
-    <header>
+    <div className="headerSection">
       <h1>Hola {user}</h1>
-      <h2>Selecciona uno de los juegos para comenzar</h2>
-    </header>
+      <h2>{text}</h2>
+    </div>
   );
 };
 
-export default Header;
+export default HeaderSection;

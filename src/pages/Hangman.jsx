@@ -2,7 +2,9 @@ import React from 'react'
 
 const Hangman = () => {
   return (
-    <div>Hangman</div>
+    <div>
+      <h1>Guenas!</h1>
+    </div>
   )
 }
 
