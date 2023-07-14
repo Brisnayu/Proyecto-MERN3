@@ -3,14 +3,9 @@ import "./ContainerButtons.css";
 import { ButtonBack, ButtonSyled } from "../UI/ButtonStyled";
 
 const ContainerButtons = () => {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
-  return (
-    <div className="container-button">
-      <ButtonBack onClick={() => navigate("/")}>Volver</ButtonBack>
-      <ButtonSyled>Iniciar Juego</ButtonSyled>
-    </div>
-  );
+  return <ButtonBack onClick={() => navigate("/")}>Volver</ButtonBack>;
 };
 
 export default ContainerButtons;
