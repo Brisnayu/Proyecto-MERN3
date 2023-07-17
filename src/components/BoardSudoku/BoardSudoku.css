@@ -57,10 +57,14 @@ input:invalid {
 .board-sudoku-solve > button {
   width: 20px;
   height: 20px;
+}
+
+.container-sudoku button {
   pointer-events: none;
 }
 
-.board-sudoku input, button{
+.board-sudoku input,
+button {
   margin: 1px;
 }
 
@@ -115,4 +119,12 @@ input:invalid {
 .container-buttons {
   display: flex;
   gap: 1rem;
+}
+
+.button-close {
+  border: 0;
+  font-size: 1.4rem;
+  font-weight: bold;
+  cursor: pointer;
+  background: transparent;
 }

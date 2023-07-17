@@ -1,7 +1,8 @@
-import { Button, Modal, Typography } from "@mui/material";
+import { Modal, Typography } from "@mui/material";
 import { styled } from "styled-components";
 import { ButtonSyled } from "../../UI/ButtonStyled";
 import { RulesPlayingSudoku } from "../../../functions/RulesGames";
+import { v4 as uuidv4 } from "uuid";
 
 export const ContainerModal = styled.div`
   position: absolute;
@@ -32,7 +33,7 @@ const ModalError = ({ open, handleClose }) => {
         <Typography id="modal-modal-title" variant="h6" component="h2">
           ¡Juega Sudoku en todo momento!
         </Typography>
-        {RulesPlayingSudoku.map((rule) => <li>🔹 {rule}</li>)}
+        {RulesPlayingSudoku.map((rule) => <li key={uuidv4()}>🔹 {rule}</li>)}
         <Typography id="modal-modal-description" sx={{ mt: 4 }}>
          ¡Disfruta del desafío y de la satisfacción de completar un
           Sudoku!
