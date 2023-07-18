@@ -1,5 +1,4 @@
 .container-button {
-    display: flex;
     gap: 1rem;
-    margin-bottom: 2rem;
+    margin: 1rem 0;
 }

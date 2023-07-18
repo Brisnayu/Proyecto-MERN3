@@ -15,8 +15,6 @@ const ArraySudoku = ({
 
     arrayValue[inputIndex] = inputValue;
 
-    // console.log("estoy aquí");
-
     setResolutionSudoku(arrayValue);
   };
 
@@ -27,6 +25,7 @@ const ArraySudoku = ({
           if (number === null) {
             return (
               <input
+                key={index}
                 type="number"
                 max={9}
                 min={1}
@@ -38,6 +37,7 @@ const ArraySudoku = ({
           } else {
             return (
               <button
+                key={uuidv4()}
                 style={{
                   backgroundColor: "var(--color-background)",
                   color: "var(--color-contrast)",

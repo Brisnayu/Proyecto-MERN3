@@ -25,7 +25,7 @@ const Form = ({ setUser }) => {
         <label>
           <input type="password" placeholder="Introduce la clave" />
         </label>
-        <ButtonSyled onClick={() => setUser(inputValue)}>Entrar!</ButtonSyled>
+        <ButtonSyled onClick={() => setUser(inputValue)}>Entrar</ButtonSyled>
       </section>
     </article>
   );

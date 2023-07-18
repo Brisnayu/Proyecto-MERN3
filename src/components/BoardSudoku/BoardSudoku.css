@@ -1,8 +1,10 @@
 .container-sudoku {
   display: flex;
   align-items: flex-end;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 2rem;
-  margin: 2rem;
+  margin: 1rem;
 }
 
 .board-sudoku {
@@ -77,7 +79,7 @@ button {
 .casilla56,
 .casilla65,
 .casilla74 {
-  border-right: 6px solid var(--color-terciary);
+  border-right: 4px solid var(--color-terciary);
 }
 
 .casilla6,
@@ -89,7 +91,7 @@ button {
 .casilla60,
 .casilla69,
 .casilla78 {
-  border-left: 6px solid var(--color-terciary);
+  border-left: 4px solid var(--color-terciary);
 }
 
 .casilla18,
@@ -101,7 +103,7 @@ button {
 .casilla24,
 .casilla25,
 .casilla26 {
-  border-bottom: 6px solid var(--color-terciary);
+  border-bottom: 4px solid var(--color-terciary);
 }
 
 .casilla45,
@@ -113,7 +115,7 @@ button {
 .casilla51,
 .casilla52,
 .casilla53 {
-  border-bottom: 6px solid var(--color-terciary);
+  border-bottom: 4px solid var(--color-terciary);
 }
 
 .container-buttons {
@@ -121,10 +123,29 @@ button {
   gap: 1rem;
 }
 
-.button-close {
-  border: 0;
-  font-size: 1.4rem;
-  font-weight: bold;
-  cursor: pointer;
-  background: transparent;
+.container-group-buttons {
+  display: flex;
+  gap: 5rem;
+  margin: 1rem;
+}
+
+.container-sudoku-solution {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  margin: 1rem;
+}
+
+@media screen and (max-width: 750px) {
+  .board-sudoku > input,
+  .board-sudoku > button {
+    width: 25px;
+    height: 25px;
+    font-size: 0.7rem;
+  }
+
+  .container-group-buttons {
+    gap: 0.5rem;
+  }
 }

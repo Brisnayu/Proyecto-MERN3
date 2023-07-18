@@ -19,6 +19,9 @@ export const ContainerModal = styled.div`
   flex-direction: column;
   gap: 1rem;
   text-align: justify;
+  overflow: auto;
+  width: 80%;
+  height: 30rem;
 `;
 
 const ModalError = ({ open, handleClose }) => {
