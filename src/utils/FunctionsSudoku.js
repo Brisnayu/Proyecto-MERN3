@@ -1,36 +1,19 @@
-import { makepuzzle, solvepuzzle } from "sudoku";
+import { solvepuzzle } from "sudoku";
 
-export const InitialGame = (setOriginalSudokuBoard, setResolutionSudoku) => {
-  const newBoard = makepuzzle();
-  setOriginalSudokuBoard(newBoard);
-  setResolutionSudoku(newBoard);
-};
-
-export const handleShowSolution = (resolut, setShowSolution) => {
-  if (resolut === true) {
-    setShowSolution("");
-  } else {
-    setShowSolution("visible");
-  }
-};
-
-export const readyComparation = (
-  resolutionSudoku,
-  setCasillas,
-  setIncomplete,
-  setOpenAlert,
-) => {
+export const readyComparation = (resolutionSudoku, dispatch) => {
   const found = resolutionSudoku.find((valor) => valor === null);
 
   found === null
-    ? (setCasillas(false), setIncomplete(true))
-    : (setCasillas(true), setIncomplete(false));
-
-  setOpenAlert(true);
+    ? dispatch({ type: "HAY_CASILLAS_LIBRES" })
+    : dispatch({ type: "NO_HAY_CASILLAS_LIBRES" });
 };
 
-//comparación de los dos arrays
-export const equality = (originalSudokuBoard, resolutionSudoku, setWin, setNewArray) => {
+export const equality = (
+  originalSudokuBoard,
+  resolutionSudoku,
+  setNewArray,
+  dispatch,
+) => {
   const arrayEquality = [];
 
   for (let i = 0; i < solvepuzzle(originalSudokuBoard).length; i++) {
@@ -44,7 +27,9 @@ export const equality = (originalSudokuBoard, resolutionSudoku, setWin, setNewAr
   const result =
     JSON.stringify(solvepuzzle(originalSudokuBoard)) === JSON.stringify(resolutionSudoku);
 
-  setWin(result);
+  if (result === true) {
+    dispatch({ type: "GANAR" });
+  }
 
   setNewArray(arrayEquality);
 };

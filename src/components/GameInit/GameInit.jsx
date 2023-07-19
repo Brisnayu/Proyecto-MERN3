@@ -23,13 +23,13 @@ const ContainerInit = styled.div`
   }
 `;
 
-const SudokuInit = () => {
+const GameInit = ({ gifInit }) => {
   return (
     <ContainerInit>
       <p>¿Estás listo para comenzar?</p>
-      <img src="https://i.pinimg.com/originals/b9/16/8c/b9168cbec1a6eb98c7faebee9f8d8891.gif" />
+      <img src={gifInit} alt="icon-initial" />
     </ContainerInit>
   );
 };
 
-export default SudokuInit;
+export default GameInit;

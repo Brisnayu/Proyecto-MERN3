@@ -1,6 +1,7 @@
+import "./StylesArraysSudoku.css";
 import { v4 as uuidv4 } from "uuid";
 
-const ResolutSudoku = ({ newArray }) => {
+const ResolvedSudoku = ({ newArray }) => {
   return (
     <div className="board-sudoku" style={{ marginBottom: "2rem" }}>
       {newArray.map((number, index) => {
@@ -27,4 +28,4 @@ const ResolutSudoku = ({ newArray }) => {
   );
 };
 
-export default ResolutSudoku;
+export default ResolvedSudoku;

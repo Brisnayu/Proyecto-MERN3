@@ -5,6 +5,9 @@
   --color-terciary: #676f9d;
   --color-contrast: whitesmoke;
 
+  --color-error: red;
+  --color-pointer: #91ff9199;
+
   --font-text: "Raleway", sans-serif;
   --font-title: "Permanent Marker", cursive;
 }

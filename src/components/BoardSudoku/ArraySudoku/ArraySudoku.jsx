@@ -1,12 +1,20 @@
+import "./StylesArraysSudoku.css";
+import { useContext, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
+import { sudokuContext } from "../../../context/sudokuContext";
+import { solvepuzzle } from "sudoku";
 
 const ArraySudoku = ({
-  sudokuArray,
-  resolvedArray,
-  showSolution,
   resolutionSudoku,
   setResolutionSudoku,
 }) => {
+
+  const { resolut, originalSudokuBoard } = useContext(sudokuContext);
+
+  useEffect(() => {
+    setResolutionSudoku(originalSudokuBoard);
+  }, [originalSudokuBoard])
+
   const getInputValue = (event) => {
     const arrayValue = [...resolutionSudoku];
 
@@ -21,7 +29,7 @@ const ArraySudoku = ({
   return (
     <section className="container-sudoku">
       <article className="board-sudoku">
-        {sudokuArray.map((number, index) => {
+        {originalSudokuBoard.map((number, index) => {
           if (number === null) {
             return (
               <input
@@ -53,8 +61,8 @@ const ArraySudoku = ({
         })}
       </article>
 
-      <article className={`board-sudoku-solve ${showSolution}`}>
-        {resolvedArray.map((number) => (
+      <article className={`board-sudoku-solve ${resolut && "visible"}`}>
+        {solvepuzzle(originalSudokuBoard).map((number) => (
           <button key={uuidv4()}>{number + 1}</button>
         ))}
       </article>

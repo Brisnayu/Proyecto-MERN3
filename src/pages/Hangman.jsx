@@ -1,9 +1,18 @@
+import BoardHangman from "../components/BoardHangman/BoardHangman"
+import ContainerButtons from "../components/ContainerButtons/ContainerButtons"
+import FooterSection from "../components/FooterSection/FooterSection"
+import HeaderSection from "../components/HeaderSection/HeaderSection"
+
 const Hangman = () => {
   return (
-    <div>
-      <h1>Guenas!</h1>
-      <button onClick={() => console.log("hola")}>Hola</button>
-    </div>
+    <main>
+
+      <HeaderSection text="Bienvenido al juego del Ahorcado" />
+      <ContainerButtons />
+      <BoardHangman />
+      <FooterSection />
+
+  </main>
   )
 }
 

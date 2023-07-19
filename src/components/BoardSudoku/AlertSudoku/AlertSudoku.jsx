@@ -1,4 +1,6 @@
+import { useContext } from "react";
 import { styled } from "styled-components";
+import { sudokuContext } from "../../../context/sudokuContext";
 
 const TextAlert = styled.h3`
   color: var(--color-contrast);
@@ -7,7 +9,10 @@ const TextAlert = styled.h3`
   margin-bottom: 1rem;
 `;
 
-const AlertSudoku = ({ win }) => {
+const AlertSudoku = () => {
+
+  const { win } = useContext(sudokuContext);
+
   return (
     <>
       {win === true ? (
