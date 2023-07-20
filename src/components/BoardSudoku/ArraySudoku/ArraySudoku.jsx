@@ -3,28 +3,14 @@ import { useContext, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
 import { sudokuContext } from "../../../context/sudokuContext";
 import { solvepuzzle } from "sudoku";
+import { getInputValue } from "../../../utils/FunctionsSudoku";
 
-const ArraySudoku = ({
-  resolutionSudoku,
-  setResolutionSudoku,
-}) => {
-
+const ArraySudoku = ({ resolutionSudoku, setResolutionSudoku }) => {
   const { resolut, originalSudokuBoard } = useContext(sudokuContext);
 
   useEffect(() => {
     setResolutionSudoku(originalSudokuBoard);
-  }, [originalSudokuBoard])
-
-  const getInputValue = (event) => {
-    const arrayValue = [...resolutionSudoku];
-
-    const inputIndex = event.target.id;
-    const inputValue = event.target.value === "" ? null : Number(event.target.value - 1);
-
-    arrayValue[inputIndex] = inputValue;
-
-    setResolutionSudoku(arrayValue);
-  };
+  }, [originalSudokuBoard]);
 
   return (
     <section className="container-sudoku">
@@ -39,7 +25,9 @@ const ArraySudoku = ({
                 min={1}
                 id={index}
                 className={"casilla" + index}
-                onChange={(ev) => getInputValue(ev)}
+                onChange={(event) =>
+                  getInputValue(event, resolutionSudoku, setResolutionSudoku)
+                }
               />
             );
           } else {

@@ -1,0 +1,19 @@
+.container-initial-game {
+    border: 2px solid blue;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+.container-letter {
+    border: 1px solid yellow;
+    width: 80%;
+    text-align: center;
+}
+
+.prueba {
+    background-color: var(--color-background);
+    pointer-events: none;
+    user-select: none;
+}

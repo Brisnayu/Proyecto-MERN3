@@ -1,5 +1,16 @@
 import { solvepuzzle } from "sudoku";
 
+export const getInputValue = (event, resolutionSudoku, setResolutionSudoku) => {
+  const arrayValue = [...resolutionSudoku];
+
+  const inputIndex = event.target.id;
+  const inputValue = event.target.value === "" ? null : Number(event.target.value - 1);
+
+  arrayValue[inputIndex] = inputValue;
+
+  setResolutionSudoku(arrayValue);
+};
+
 export const readyComparation = (resolutionSudoku, dispatch) => {
   const found = resolutionSudoku.find((valor) => valor === null);
 
@@ -24,12 +35,12 @@ export const equality = (
     }
   }
 
+  setNewArray(arrayEquality);
+
   const result =
     JSON.stringify(solvepuzzle(originalSudokuBoard)) === JSON.stringify(resolutionSudoku);
 
   if (result === true) {
     dispatch({ type: "GANAR" });
   }
-
-  setNewArray(arrayEquality);
 };

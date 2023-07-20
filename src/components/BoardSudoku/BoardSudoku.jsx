@@ -2,23 +2,18 @@ import "./BoardSudoku.css";
 import { useContext, useState } from "react";
 import { ButtonBack, ButtonSyled } from "../UI/ButtonStyled";
 import GameInit from "../GameInit/GameInit";
-import ModalError from "./ModalError/ModalError";
 import ArraySudoku from "./ArraySudoku/ArraySudoku";
 import MessageAlert from "./MessageAlert/MessageAlert";
 import { equality, readyComparation } from "../../utils/FunctionsSudoku";
 import AlertSudoku from "./AlertSudoku/AlertSudoku";
 import { sudokuContext } from "../../context/sudokuContext";
 import ResolvedSudoku from "./ArraySudoku/ResolvedSudoku";
+import ModalInformation from "../ModalInformation/ModalInformation";
+import { RulesPlayingSudoku } from "../../functions/RulesGames";
 
 const BoardSudoku = () => {
-  const {
-    solution,
-    comprobation,
-    casillas,
-    incomplete,
-    dispatch,
-    originalSudokuBoard,
-  } = useContext(sudokuContext);
+  const { solution, comprobation, casillas, incomplete, dispatch, originalSudokuBoard } =
+    useContext(sudokuContext);
 
   //Array que se va creando al ir rellenando la info!
   const [resolutionSudoku, setResolutionSudoku] = useState([]);
@@ -107,7 +102,7 @@ const BoardSudoku = () => {
         </div>
       )}
 
-      <ModalError open={open} handleClose={handleClose} />
+      <ModalInformation open={open} handleClose={handleClose} nameGame={"Sudoku"} rules={RulesPlayingSudoku} />
     </>
   );
 };
