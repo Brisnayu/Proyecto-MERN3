@@ -6,12 +6,16 @@ import ModalInformation from "../ModalInformation/ModalInformation";
 import { RulesPlayingHangman } from "../../functions/RulesGames";
 import HangmanInit from "./HangmanInit/HangmanInit";
 import HangmanAnswers from "./HangmanAnswers/HangmanAnswers";
+import { letterAlphabet } from "../../functions/ArrayHangman";
 
 const BoardHangman = () => {
   const [initialGame, setInitialGame] = useState(false);
   const [chance, setChance] = useState(10);
   const [wrongLetters, setWrongLetters] = useState([]);
   const [selectedWord, setSelectedWord] = useState([]);
+  const [arrayGame, setArrayGame] = useState([]);
+
+  const [selectedLetters, setSelectedLetters] = useState(letterAlphabet);
 
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
@@ -39,10 +43,11 @@ const BoardHangman = () => {
         <div className="container-initial-game">
           <div>
             <HangmanAnswers
-              selectedWord={selectedWord}
               setSelectedWord={setSelectedWord}
               setChance={setChance}
               setWrongLetters={setWrongLetters}
+              arrayGame={arrayGame}
+              setSelectedLetters={setSelectedLetters}
             />
           </div>
           <div className="container-letter">
@@ -53,6 +58,10 @@ const BoardHangman = () => {
               wrongLetters={wrongLetters}
               setWrongLetters={setWrongLetters}
               selectedWord={selectedWord}
+              selectedLetters={selectedLetters}
+              setSelectedLetters={setSelectedLetters}
+              arrayGame={arrayGame}
+              setArrayGame={setArrayGame}
             />
           </div>
         </div>

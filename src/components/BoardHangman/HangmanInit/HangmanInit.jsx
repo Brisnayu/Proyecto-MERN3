@@ -1,8 +1,8 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import { ButtonBack } from "../../UI/ButtonStyled";
-import { letterAlphabet } from "../../../functions/ArrayHangman";
 import { styled } from "styled-components";
+import { ButtonLetters } from "../HangmanAnswers/HangmanAnswers";
 
 const AlphabetContainer = styled.div`
   /* border: 1px solid red; */
@@ -42,28 +42,47 @@ const HangmanInit = ({
   setChance,
   wrongLetters,
   setWrongLetters,
-  selectedWord
+  selectedWord,
+  selectedLetters,
+  setSelectedLetters,
+  arrayGame,
+  setArrayGame,
 }) => {
+  useEffect(() => {
+    const getArrayGame = [];
+
+    for (let i = 0; i < selectedWord.length; i++) {
+      getArrayGame.push(null);
+    }
+
+    setArrayGame(getArrayGame);
+  }, [selectedWord]);
+
   const handleButtonClick = (letra, index) => {
     // console.log(`Botón ${letra} clickeado`);
     const ArrayNew = [...wrongLetters, letra];
+    const letterChange = [...selectedLetters];
 
-    const otherLetter = [...otherLetters];
+    letterChange[index] = 2;
 
-    otherLetter[index] = 2;
-
-    setOtherLetters(otherLetter);
+    setSelectedLetters(letterChange);
 
     setWrongLetters(ArrayNew);
-    
+
     if (selectedWord.includes(letra)) {
-        console.log("SI LO INCLUYE")
+      for (let i = 0; i < selectedWord.length; i++) {
+        if (selectedWord[i] === letra) {
+          arrayGame[i] = letra;
+        }
+      }
+
+      setChance(chance);
+    } else {
+      setChance(chance - 1);
     }
   };
 
-  const [otherLetters, setOtherLetters] = useState(letterAlphabet);
-
-console.log(selectedWord);
+  // console.log(wrongLetters)
 
   return (
     <>
@@ -74,30 +93,58 @@ console.log(selectedWord);
           wrongLetters.map((letter) => <h3 key={uuidv4()}>{letter}</h3>)}
       </ContainerWrong>
 
-      <AlphabetContainer>
-        {otherLetters.map((letra, index) => {
-          if (typeof letra === "string") {
-            return (
-              <button
-                key={uuidv4()}
-                onClick={() => {
-                  handleButtonClick(letra, index), setChance(chance - 1);
-                }}
-              >
-                {letra}
-              </button>
-            );
-          } else {
-            return (
-              <button className="prueba" key={uuidv4()}>
-                {letra}
-              </button>
-            );
-          }
-        })}
-      </AlphabetContainer>
+      {chance > 0 && arrayGame.includes(null) ? (
+        <AlphabetContainer>
+          {selectedLetters.map((letra, index) => {
+            if (typeof letra === "string") {
+              return (
+                <button
+                  key={uuidv4()}
+                  onClick={() => {
+                    handleButtonClick(letra, index);
+                  }}
+                >
+                  {letra}
+                </button>
+              );
+            } else {
+              return (
+                <button className="prueba" key={uuidv4()}>
+                  {letra}
+                </button>
+              );
+            }
+          })}
+        </AlphabetContainer>
+      ) : (
+        <>
+          {chance < 0 && (
+            <>
+              <h3>
+                ¡Lo siento, has sido derrotado! ¿Te animas a intentarlo de nuevo? 🤔
+              </h3>
+              <h3>La palabra secreta es: {selectedWord.join("")}</h3>
+            </>
+          )}
+        </>
+      )}
 
-      <ButtonBack onClick={() => setInitialGame(false)}>Salir</ButtonBack>
+      {!arrayGame.includes(null) && (
+        <>
+          <h1>
+            "¡Felicidades! Has adivinado la palabra correctamente. Eres un campeón del
+            ahorcado. ¡Bien hecho!"
+          </h1>
+        </>
+      )}
+
+      <ButtonBack
+        onClick={() => {
+          setInitialGame(false), setWrongLetters([]), setChance(10);
+        }}
+      >
+        Salir
+      </ButtonBack>
     </>
   );
 };

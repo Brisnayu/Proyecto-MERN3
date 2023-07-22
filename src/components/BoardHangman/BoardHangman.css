@@ -12,8 +12,18 @@
     text-align: center;
 }
 
+/* CAMBIAR NOMBRE */
 .prueba {
     background-color: var(--color-background);
     pointer-events: none;
     user-select: none;
 }
+
+.prueba1 {
+    color: blue;
+}
+
+.prueba2 {
+    color: red;
+}
+
