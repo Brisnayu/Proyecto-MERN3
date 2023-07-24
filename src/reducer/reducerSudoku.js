@@ -73,21 +73,3 @@ export const reducer = (state, action) => {
       };
   }
 };
-
-
-    // for (let i = 0; i < selectedWord.length; i++) {
-    //   if (selectedWord[i] === letra) {
-    //     if (arrayOk[i] === null) {
-    //       console.log("hay un igual a null, SE PONE LA LETRA")
-    //       console.log("cuando vale arrayOk", arrayOk[i])
-    //       console.log("cual es la posisicion i", i)
-    //       arrayOk[i] = letra;
-    //     } else {
-    //       console.log("no hay un igual a null SE PONE LA LETRA")
-    //       UnNuevoArray.push(letra);
-    //     }
-    //   } else {
-    //     console.log("SE PONE UN NULL")
-    //     UnNuevoArray.push(null);
-    //   }
-    // }

@@ -1,21 +1,23 @@
 import "./BoardHangman.css";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import GameInit from "../GameInit/GameInit";
 import { ButtonSyled } from "../UI/ButtonStyled";
 import ModalInformation from "../ModalInformation/ModalInformation";
 import { RulesPlayingHangman } from "../../functions/RulesGames";
 import HangmanInit from "./HangmanInit/HangmanInit";
 import HangmanAnswers from "./HangmanAnswers/HangmanAnswers";
-import { letterAlphabet } from "../../functions/ArrayHangman";
+import { hangmanContext } from "../../context/hangmanContext";
 
 const BoardHangman = () => {
-  const [initialGame, setInitialGame] = useState(false);
-  const [chance, setChance] = useState(10);
-  const [wrongLetters, setWrongLetters] = useState([]);
-  const [selectedWord, setSelectedWord] = useState([]);
-  const [arrayGame, setArrayGame] = useState([]);
+  // const [initialGame, setInitialGame] = useState(false);
+  // const [chance, setChance] = useState(10);
+  // const [wrongLetters, setWrongLetters] = useState([]);
+  // const [selectedWord, setSelectedWord] = useState([]);
+  // const [arrayGame, setArrayGame] = useState([]);
 
-  const [selectedLetters, setSelectedLetters] = useState(letterAlphabet);
+  // const [selectedLetters, setSelectedLetters] = useState(letterAlphabet);
+
+  const { initialGame, selectedWord, dispatch } = useContext(hangmanContext);
 
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
@@ -26,7 +28,9 @@ const BoardHangman = () => {
       {!initialGame ? (
         <>
           <div className="container-group-buttons">
-            <ButtonSyled onClick={() => setInitialGame(true)}>Iniciar juego</ButtonSyled>
+            <ButtonSyled onClick={() => {dispatch({ type: "INICIAR_JUEGO" }), dispatch({ type: "ARRAY_JUEGO" })}}>
+              Iniciar juego
+            </ButtonSyled>
             <ButtonSyled onClick={() => handleOpen()}>¿Cómo jugar?</ButtonSyled>
           </div>
 
@@ -42,27 +46,10 @@ const BoardHangman = () => {
       ) : (
         <div className="container-initial-game">
           <div>
-            <HangmanAnswers
-              setSelectedWord={setSelectedWord}
-              setChance={setChance}
-              setWrongLetters={setWrongLetters}
-              arrayGame={arrayGame}
-              setSelectedLetters={setSelectedLetters}
-            />
+            <HangmanAnswers />
           </div>
           <div className="container-letter">
-            <HangmanInit
-              setInitialGame={setInitialGame}
-              chance={chance}
-              setChance={setChance}
-              wrongLetters={wrongLetters}
-              setWrongLetters={setWrongLetters}
-              selectedWord={selectedWord}
-              selectedLetters={selectedLetters}
-              setSelectedLetters={setSelectedLetters}
-              arrayGame={arrayGame}
-              setArrayGame={setArrayGame}
-            />
+            <HangmanInit />
           </div>
         </div>
       )}

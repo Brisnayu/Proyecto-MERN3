@@ -1,29 +1,17 @@
 .container-initial-game {
-    border: 2px solid blue;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
 }
 
 .container-letter {
-    border: 1px solid yellow;
-    width: 80%;
-    text-align: center;
+  width: 80%;
+  text-align: center;
 }
 
-/* CAMBIAR NOMBRE */
-.prueba {
-    background-color: var(--color-background);
-    pointer-events: none;
-    user-select: none;
+.button-selected {
+  background-color: var(--color-background);
+  pointer-events: none;
+  user-select: none;
 }
-
-.prueba1 {
-    color: blue;
-}
-
-.prueba2 {
-    color: red;
-}
-
