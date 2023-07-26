@@ -23,11 +23,11 @@ const ContainerInit = styled.div`
   }
 `;
 
-const GameInit = ({ gifInit }) => {
+const GameInit = ({ imgInit }) => {
   return (
     <ContainerInit>
       <p>¿Estás listo para comenzar?</p>
-      <img src={gifInit} alt="icon-initial" />
+      <img src={imgInit} alt="initial-icon" />
     </ContainerInit>
   );
 };

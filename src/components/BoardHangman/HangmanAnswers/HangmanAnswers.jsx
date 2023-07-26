@@ -30,14 +30,17 @@ const ContainerGame = styled.div`
 `;
 
 const HangmanAnswers = () => {
-  const { initialGame, selectedWord, arrayGame, chance, dispatch } =
+  const { arrayGame, dispatch } =
     useContext(hangmanContext);
-
-  console.log("arrayGame", arrayGame);
 
   return (
     <ContainerAnswers>
-      <ButtonSyled onClick={() => dispatch({ type: "REINICIAR_JUEGO" })}>
+      <ButtonSyled
+        onClick={() => {
+          dispatch({ type: "REINICIAR_JUEGO" });
+          dispatch({ type: "CREAR_ARRAY_GAME" });
+        }}
+      >
         Reiniciar
       </ButtonSyled>
 

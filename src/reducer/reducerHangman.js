@@ -1,16 +1,17 @@
 import { letterAlphabet, wordsHangman } from "../functions/ArrayHangman";
 
-const numberRandom = Math.random() * wordsHangman.length;
-const positionArray = Math.floor(numberRandom);
+const getWordGame = () => {
+  const numberRandom = Math.random() * wordsHangman.length;
+  const positionArray = Math.floor(numberRandom);
 
-const pruebaPalabra = wordsHangman[positionArray].split("");
+  return wordsHangman[positionArray].split("");
+};
 
 export const INITIAL_STATE_HANGMAN = {
   initialGame: false,
-  restart: false,
   chance: 10,
   wrongLetters: [],
-  selectedWord: [...pruebaPalabra],
+  selectedWord: [],
   arrayGame: [],
   selectedLetters: letterAlphabet,
 };
@@ -21,23 +22,26 @@ export const reducerHangman = (state, action) => {
       return {
         ...state,
         initialGame: true,
+        selectedWord: getWordGame(),
+      };
+
+    case "CREAR_ARRAY_GAME":
+      return {
+        ...state,
+        arrayGame: state.selectedWord.map(() => null),
       };
     case "REINICIAR_JUEGO":
       return {
         ...state,
-        restart: !state.restart,
+        selectedWord: getWordGame(),
         chance: 10,
         wrongLetters: [],
+        selectedLetters: letterAlphabet,
       };
     case "SELECCIONAR_PALABRA":
       return {
         ...state,
         selectedLetters: letterAlphabet,
-      };
-    case "ARRAY_JUEGO":
-      return {
-        ...state,
-        arrayGame: state.selectedWord.map(() => null),
       };
     case "RESTAR_OPORTUNIDADES":
       return {
@@ -63,6 +67,7 @@ export const reducerHangman = (state, action) => {
         initialGame: false,
         wrongLetters: [],
         chance: 10,
+        selectedLetters: letterAlphabet,
       };
   }
 };

@@ -2,11 +2,11 @@ import { useContext, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import { ButtonBack } from "../../UI/ButtonStyled";
 import { styled } from "styled-components";
-import AlertHangman from "../AlertHangman/AlertHangman";
 import { hangmanContext } from "../../../context/hangmanContext";
+import { handleButtonLetter } from "../../../utils/FunctionsHangman";
+import FinishGame from "../FinishGame/FinishGame";
 
 const AlphabetContainer = styled.div`
-  /* border: 1px solid red; */
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -16,7 +16,6 @@ const AlphabetContainer = styled.div`
   margin-bottom: 1rem;
 
   > button {
-    /* border: 1px solid yellow; */
     width: 50px;
     height: 50px;
     font-size: 2rem;
@@ -41,39 +40,6 @@ const HangmanInit = () => {
   const { chance, wrongLetters, selectedWord, selectedLetters, arrayGame, dispatch } =
     useContext(hangmanContext);
 
-  console.log(selectedWord);
-  console.log("HangmanInit", selectedWord);
-
-  const [letrasUsadas, setLetrasUsadas] = useState()
-
-  // useEffect(() => {
-  //   dispatch({ type: "ARRAY_JUEGO" });
-  //   console.log("HOLA, ESTOY EN USEEFECT")
-  // }, [selectedWord]);
-
-  const handleButtonClick = (letra, index) => {
-    // console.log(`Botón ${letra} clickeado`);
-
-    const ArrayNew = [...wrongLetters, letra];
-    const letterChange = [...selectedLetters];
-
-    letterChange[index] = 2;
-
-    dispatch({ type: "LETRAS_USADAS", letra, index });
-
-    if (selectedWord.includes(letra)) {
-      for (let i = 0; i < selectedWord.length; i++) {
-        if (selectedWord[i] === letra) {
-          arrayGame[i] = letra;
-        }
-      }
-    } else {
-      dispatch({ type: "RESTAR_OPORTUNIDADES" });
-    }
-  };
-
-  // console.log(wrongLetters)
-
   return (
     <>
       <h2>Te quedan {chance} intentos</h2>
@@ -91,7 +57,7 @@ const HangmanInit = () => {
                 <button
                   key={uuidv4()}
                   onClick={() => {
-                    handleButtonClick(letra, index);
+                    handleButtonLetter(dispatch, selectedWord, arrayGame, letra, index);
                   }}
                 >
                   {letra}
@@ -107,7 +73,7 @@ const HangmanInit = () => {
           })}
         </AlphabetContainer>
       ) : (
-        <AlertHangman />
+        <FinishGame />
       )}
 
       <ButtonBack onClick={() => dispatch({ type: "SALIR_JUEGO" })}>Salir</ButtonBack>

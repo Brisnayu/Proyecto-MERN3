@@ -8,7 +8,6 @@ const HangmanContextProvider = ({ children }) => {
 
   const {
     initialGame,
-    restart,
     chance,
     wrongLetters,
     selectedWord,
@@ -20,7 +19,6 @@ const HangmanContextProvider = ({ children }) => {
     <hangmanContext.Provider
       value={{
         initialGame,
-        restart,
         chance,
         wrongLetters,
         selectedWord,

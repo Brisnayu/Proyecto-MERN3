@@ -10,8 +10,6 @@ export const ButtonSyled = styled.button`
   font-size: 1rem;
 
   &:hover {
-    -webkit-box-shadow: 0px 0px 20px 10px var(--color-secondary);
-    -moz-box-shadow: 0px 0px 20px 10px var(--color-secondary);
     box-shadow: 0px 0px 20px 10px var(--color-secondary);
     border: none;
     cursor: pointer;
@@ -29,8 +27,6 @@ export const ButtonBack = styled.button`
   color: var(--color-contrast);
 
   &:hover {
-    -webkit-box-shadow: 0px 0px 20px 10px var(--color-terciary);
-    -moz-box-shadow: 0px 0px 20px 10px var(--color-terciary);
     box-shadow: 0px 0px 20px 10px var(--color-terciary);
     border: none;
     cursor: pointer;
@@ -50,8 +46,6 @@ export const ButtonTicTacToe = styled.button`
   font-weight: bold;
 
   &:hover {
-    -webkit-box-shadow: 0px 0px 20px 10px var(--color-terciary);
-    -moz-box-shadow: 0px 0px 20px 10px var(--color-terciary);
     box-shadow: 0px 0px 20px 10px var(--color-terciary);
     cursor: pointer;
   }

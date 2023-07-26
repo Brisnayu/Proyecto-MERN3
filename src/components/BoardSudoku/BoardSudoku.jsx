@@ -9,7 +9,7 @@ import AlertSudoku from "./AlertSudoku/AlertSudoku";
 import { sudokuContext } from "../../context/sudokuContext";
 import ResolvedSudoku from "./ArraySudoku/ResolvedSudoku";
 import ModalInformation from "../ModalInformation/ModalInformation";
-import { RulesPlayingSudoku } from "../../functions/RulesGames";
+import { RulesPlaySudoku } from "../../functions/RulesGames";
 
 const BoardSudoku = () => {
   const { solution, comprobation, casillas, incomplete, dispatch, originalSudokuBoard } =
@@ -37,7 +37,7 @@ const BoardSudoku = () => {
             </ButtonSyled>
             <ButtonSyled onClick={() => handleOpen()}>¿Cómo jugar?</ButtonSyled>
           </div>
-          <GameInit gifInit="https://i.pinimg.com/originals/b9/16/8c/b9168cbec1a6eb98c7faebee9f8d8891.gif" />
+          <GameInit imgInit="https://res.cloudinary.com/dx8j6h1rb/image/upload/v1690376140/Proyecto6%2C%20Hub%20de%20Juegos/door-closed_m7meln.png" />
         </>
       ) : !comprobation ? (
         <>
@@ -102,7 +102,7 @@ const BoardSudoku = () => {
         </div>
       )}
 
-      <ModalInformation open={open} handleClose={handleClose} nameGame={"Sudoku"} rules={RulesPlayingSudoku} />
+      <ModalInformation open={open} handleClose={handleClose} nameGame={"Sudoku"} rules={RulesPlaySudoku} />
     </>
   );
 };

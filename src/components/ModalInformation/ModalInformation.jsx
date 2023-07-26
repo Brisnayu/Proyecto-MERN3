@@ -1,7 +1,6 @@
 import { Modal, Typography } from "@mui/material";
 import { styled } from "styled-components";
 import { ButtonSyled } from "../UI/ButtonStyled";
-import { RulesPlayingSudoku } from "../../functions/RulesGames";
 import { v4 as uuidv4 } from "uuid";
 
 export const ContainerModal = styled.div`

@@ -1,61 +1,113 @@
 import { useEffect, useState } from "react";
-import { ButtonSyled, ButtonTicTacToe } from "../UI/ButtonStyled";
+import { v4 as uuidv4 } from "uuid";
+import { ButtonBack, ButtonSyled, ButtonTicTacToe } from "../UI/ButtonStyled";
 import "./BoardTictactoe.css";
+import GameInit from "../GameInit/GameInit";
+import ModalInformation from "../ModalInformation/ModalInformation";
+import { RulesPlayTicTacToe } from "../../functions/RulesGames";
 
 const BoardTictactoe = () => {
-  const [text, setText] = useState("");
-  const [text1, setText1] = useState("");
-  const [text2, setText2] = useState("");
+  const [starGame, setStarGame] = useState(false);
 
-  const [text3, setText3] = useState("");
-  const [text4, setText4] = useState("");
-  const [text8, setText8] = useState("");
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
 
-  const [text5, setText5] = useState("");
-  const [text6, setText6] = useState("");
-  const [text7, setText7] = useState("");
+  const [turn, setTurn] = useState("");
 
-  const [turn, setTurn] = useState("O");
+  const originalBoardTicTacToe = [
+    [null, null, null],
+    [null, null, null],
+    [null, null, null],
+  ];
 
-  const tokenExchange = () => {
-    console.log("estas cambiando de ficha");
+  // console.log(originalBoardTicTacToe[0][0])
 
-    if (turn === "O") {
-      setTurn("X");
-    } else {
+  const [boardTicTacToe, setBoardTicTacToe] = useState(originalBoardTicTacToe);
+
+  const changedBoardTicTacToe = (event, indexColumn, indexRow) => {
+    const pruebaProyecto = [...boardTicTacToe];
+    const valueColumn = indexColumn;
+    const valueRow = indexRow;
+
+    pruebaProyecto[valueColumn][valueRow] = turn;
+
+    setBoardTicTacToe(pruebaProyecto);
+
+    if (turn === "X") {
       setTurn("O");
+    } else {
+      setTurn("X");
     }
   };
 
-  useEffect(() => {
-    tokenExchange();
-  }, [text, text1, text2, text3, text4, text5, text6, text7, text8]);
-
   return (
-    <article className="card-board">
-      <h2>Es el turno de</h2>
-      <h2>"{turn}"</h2>
-      <section className="container-board">
-        <div>
-          <ButtonTicTacToe onClick={() => setText(turn)}>{text}</ButtonTicTacToe>
-          <ButtonTicTacToe onClick={() => setText1(turn)}>{text1}</ButtonTicTacToe>
-          <ButtonTicTacToe onClick={() => setText2(turn)}>{text2}</ButtonTicTacToe>
-        </div>
-        <div>
-          <ButtonTicTacToe onClick={() => setText3(turn)}>{text3}</ButtonTicTacToe>
-          <ButtonTicTacToe onClick={() => setText4(turn)}>{text4}</ButtonTicTacToe>
-          <ButtonTicTacToe onClick={() => setText5(turn)}>{text5}</ButtonTicTacToe>
-        </div>
-        <div>
-          <ButtonTicTacToe onClick={() => setText6(turn)}>{text6}</ButtonTicTacToe>
-          <ButtonTicTacToe onClick={() => setText7(turn)}>{text7}</ButtonTicTacToe>
-          <ButtonTicTacToe onClick={() => setText8(turn)}>{text8}</ButtonTicTacToe>
-        </div>
-      </section>
+    <>
+      {!starGame ? (
+        <>
+          <div className="container-group-buttons">
+            <ButtonSyled onClick={() => setStarGame(true)}>Iniciar juego</ButtonSyled>
+            <ButtonSyled onClick={() => handleOpen()}>¿Cómo jugar?</ButtonSyled>
+          </div>
 
-        {text8 !== "" && <ButtonSyled>hola</ButtonSyled>}
-      
-    </article>
+          <GameInit imgInit="https://res.cloudinary.com/dx8j6h1rb/image/upload/v1690376140/Proyecto6%2C%20Hub%20de%20Juegos/two-people_ooxblq.png" />
+
+          <ModalInformation
+            open={open}
+            handleClose={handleClose}
+            nameGame={"Tres en Raya"}
+            rules={RulesPlayTicTacToe}
+          />
+        </>
+      ) : (
+        <article className="card-board">
+          {turn === "" ? (
+            <div className="selected-token">
+              Selecciona con tu ficha:
+              <div>
+                <button onClick={() => setTurn("X")}>X</button>
+                <button onClick={() => setTurn("O")}>O</button>
+              </div>
+            </div>
+          ) : (
+            <>
+              <ButtonSyled
+                onClick={() => {
+                  setTurn(""), setBoardTicTacToe(originalBoardTicTacToe);
+                }}
+              >
+                Reiniciar
+              </ButtonSyled>
+              <h2>Es el turno de</h2>
+              <h2>"{turn}"</h2>
+              <section className="container-board">
+                <div>
+                  {boardTicTacToe.map((row, indexRow) =>
+                    row.map((column, indexColumn) => (
+                      <ButtonTicTacToe
+                        key={uuidv4()}
+                        onClick={(event) =>
+                          changedBoardTicTacToe(event, indexRow, indexColumn)
+                        }
+                      >
+                        {column}
+                      </ButtonTicTacToe>
+                    )),
+                  )}
+                </div>
+                <ButtonBack
+                  onClick={() => {
+                    setStarGame(false), setBoardTicTacToe(originalBoardTicTacToe);
+                  }}
+                >
+                  Salir
+                </ButtonBack>
+              </section>
+            </>
+          )}
+        </article>
+      )}
+    </>
   );
 };
 
