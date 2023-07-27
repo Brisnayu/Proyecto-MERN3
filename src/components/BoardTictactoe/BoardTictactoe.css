@@ -9,17 +9,17 @@
   width: 100%;
   height: auto;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
   /* border: 3px solid yellow; */
   gap: 1rem;
+  padding: 2rem;
 }
 
 .container-board div {
   display: flex;
   /* border: 1px solid red; */
-  width: 40%;
   flex-wrap: wrap;
   justify-content: center;
 }
@@ -60,4 +60,33 @@
   box-shadow: 0px 0px 50px 30px var(--color-terciary);
   cursor: pointer;
   scale: 1.1;
+}
+
+.container-game-score {
+  /* border: 1px solid red; */
+  display: flex;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+.container-score-turn {
+  /* border: 1px solid yellow; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.container-score-turn > div {
+  border: 15px solid var(--color-terciary);
+}
+
+.container-game {
+  /* border: 1px solid green; */
+  max-width: 500px;
+}
+
+.disable {
+  filter: grayscale(1);
+  pointer-events: none;
 }
