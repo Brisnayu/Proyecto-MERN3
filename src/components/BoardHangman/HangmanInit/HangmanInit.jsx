@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
-import { ButtonBack } from "../../UI/ButtonStyled";
+import { ButtonBack, ButtonSyled } from "../../UI/ButtonStyled";
 import { styled } from "styled-components";
 import { hangmanContext } from "../../../context/hangmanContext";
 import { handleButtonLetter } from "../../../utils/FunctionsHangman";
@@ -29,6 +29,7 @@ const ContainerWrong = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-wrap: wrap;
   padding: 1.5rem;
   gap: 0.5rem;
   text-decoration: line-through;
@@ -76,7 +77,17 @@ const HangmanInit = () => {
         <FinishGame />
       )}
 
-      <ButtonBack onClick={() => dispatch({ type: "SALIR_JUEGO" })}>Salir</ButtonBack>
+      <div>
+        <ButtonSyled
+          onClick={() => {
+            dispatch({ type: "REINICIAR_JUEGO" });
+            dispatch({ type: "CREAR_ARRAY_GAME" });
+          }}
+        >
+          Reiniciar
+        </ButtonSyled>
+        <ButtonBack onClick={() => dispatch({ type: "SALIR_JUEGO" })}>Salir</ButtonBack>
+      </div>
     </>
   );
 };

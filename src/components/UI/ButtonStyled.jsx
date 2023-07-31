@@ -49,4 +49,10 @@ export const ButtonTicTacToe = styled.button`
     box-shadow: 0px 0px 20px 10px var(--color-terciary);
     cursor: pointer;
   }
+
+  @media screen and (max-width: 500px) {
+    width: 3.5rem;
+    height: 3.5rem;
+    font-size: 2rem;
+  }
 `;

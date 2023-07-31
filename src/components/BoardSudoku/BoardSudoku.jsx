@@ -96,10 +96,7 @@ const BoardSudoku = () => {
         </div>
       )}
 
-      <ModalInformation
-        nameGame={"Sudoku"}
-        rules={RulesPlaySudoku}
-      />
+      <ModalInformation nameGame={"Sudoku"} rules={RulesPlaySudoku} />
     </>
   );
 };

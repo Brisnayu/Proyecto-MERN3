@@ -1,7 +1,6 @@
 import { useContext } from "react";
 import { v4 as uuidv4 } from "uuid";
 import { styled } from "styled-components";
-import { ButtonSyled } from "../../UI/ButtonStyled";
 import { hangmanContext } from "../../../context/hangmanContext";
 
 export const ButtonLetters = styled.button`
@@ -15,49 +14,42 @@ export const ButtonLetters = styled.button`
   font-weight: bold;
   border: 0;
   border-bottom: 3px solid var(--color-contrast);
+
+  @media screen and (max-width: 768px) {
+    width: 50px;
+    height: 50px;
+  }
+
+  @media screen and (max-width: 450px) {
+    width: 30px;
+    height: 30px;
+    font-size: 1.5rem;
+  }
 `;
 
 const ContainerAnswers = styled.div`
   display: flex;
-  flex-direction: column;
   align-items: center;
-  gap: 0.5rem;
-`;
-
-const ContainerGame = styled.div`
-  display: flex;
   font-family: var(--font-title);
 `;
 
 const HangmanAnswers = () => {
-  const { arrayGame, dispatch } =
-    useContext(hangmanContext);
+  const { arrayGame } = useContext(hangmanContext);
 
   return (
     <ContainerAnswers>
-      <ButtonSyled
-        onClick={() => {
-          dispatch({ type: "REINICIAR_JUEGO" });
-          dispatch({ type: "CREAR_ARRAY_GAME" });
-        }}
-      >
-        Reiniciar
-      </ButtonSyled>
-
-      <ContainerGame>
-        {arrayGame.length > 0 &&
-          arrayGame.map((letter) => {
-            if (letter === null) {
-              return <ButtonLetters key={uuidv4()}>{letter}</ButtonLetters>;
-            } else {
-              return (
-                <ButtonLetters key={uuidv4()} style={{ color: "var(--color-pointer)" }}>
-                  {letter}
-                </ButtonLetters>
-              );
-            }
-          })}
-      </ContainerGame>
+      {arrayGame.length > 0 &&
+        arrayGame.map((letter) => {
+          if (letter === null) {
+            return <ButtonLetters key={uuidv4()}>{letter}</ButtonLetters>;
+          } else {
+            return (
+              <ButtonLetters key={uuidv4()} style={{ color: "var(--color-pointer)" }}>
+                {letter}
+              </ButtonLetters>
+            );
+          }
+        })}
     </ContainerAnswers>
   );
 };

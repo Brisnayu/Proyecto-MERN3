@@ -19,7 +19,7 @@ const ScoreTable = ({ winnerX, winnerO, tied }) => {
 
   return (
     <TableContainer component={Paper}>
-      <Table sx={{ minWidth: 350, backgroundColor: "var(--color-primary)" }}>
+      <Table sx={{ minWidth: "35%", backgroundColor: "var(--color-primary)" }}>
         <TableHead>
           <TableRow>
             <TableCell style={{ color: "var(--color-contrast)" }}>

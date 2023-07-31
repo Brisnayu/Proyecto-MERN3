@@ -9,7 +9,6 @@ import { tictactoeContext } from "../../context/tictactoeContext";
 import GameTictactoe from "./GameTictactoe/GameTictactoe";
 import { UserAndModalContext } from "../../context/userAndModalContext";
 
-
 const BoardTictactoe = () => {
   const { starGame, winnerPosition, openWinner, openTied, turn, winner, dispatch } =
     useContext(tictactoeContext);
@@ -41,18 +40,10 @@ const BoardTictactoe = () => {
         </>
       ) : (
         <article className="card-board">
-          <ButtonSyled
-            onClick={() => {
-              dispatch({ type: "REINICIAR_PARTIDA" });
-              setBoardTicTacToe(originalBoardTicTacToe);
-            }}
-          >
-            Reiniciar
-          </ButtonSyled>
-
           <GameTictactoe
             boardTicTacToe={boardTicTacToe}
             setBoardTicTacToe={setBoardTicTacToe}
+            originalBoardTicTacToe={originalBoardTicTacToe}
           />
 
           {!winner ? (
@@ -79,15 +70,6 @@ const BoardTictactoe = () => {
               }}
             />
           )}
-
-          <ButtonBack
-            onClick={() => {
-              dispatch({ type: "SALIR_JUEGO" });
-              setBoardTicTacToe(originalBoardTicTacToe);
-            }}
-          >
-            Salir
-          </ButtonBack>
         </article>
       )}
     </>

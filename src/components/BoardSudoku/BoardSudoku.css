@@ -17,15 +17,3 @@
   margin: 1rem;
 }
 
-@media screen and (max-width: 750px) {
-  .board-sudoku > input,
-  .board-sudoku > button {
-    width: 25px;
-    height: 25px;
-    font-size: 0.7rem;
-  }
-
-  .container-group-buttons {
-    gap: 0.5rem;
-  }
-}

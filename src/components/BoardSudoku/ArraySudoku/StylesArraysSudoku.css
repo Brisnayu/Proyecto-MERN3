@@ -17,11 +17,25 @@
 
 .board-sudoku > input,
 .board-sudoku > button {
-  width: 50px;
-  height: 50px;
+  width: 3rem;
+  height: 3rem;
   text-align: center;
   font-size: 1.5rem;
   transition: all 1s ease;
+}
+
+@media screen and (max-width: 750px) {
+  .board-sudoku > input,
+  .board-sudoku > button {
+    width: 25px;
+    height: 25px;
+    font-size: 1rem;
+    /* border: 1px solid red; */
+  }
+
+  .container-group-buttons {
+    gap: 0.5rem;
+  }
 }
 
 .board-sudoku > input:focus {

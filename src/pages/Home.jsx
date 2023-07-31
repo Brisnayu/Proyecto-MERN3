@@ -21,6 +21,7 @@ const Home = () => {
         <>
           <HeaderSection text="Selecciona uno de los juegos" />
           <Games />
+          <ButtonSyled onClick={() => setUser("")}>SALIR</ButtonSyled>
           <FooterSection />
         </>
       ) : (
