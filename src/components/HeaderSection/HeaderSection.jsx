@@ -1,9 +1,10 @@
+import { UserAndModalContext } from "../../context/userAndModalContext";
 import "./HeaderSection.css";
 import { useContext } from "react";
-import { UserContext } from "../../context/userContext";
+
 
 const HeaderSection = ({ text }) => {
-  const {user} = useContext(UserContext);
+  const { user } = useContext(UserAndModalContext);
 
   return (
     <div className="headerSection">

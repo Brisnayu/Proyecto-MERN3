@@ -10,22 +10,16 @@ import { sudokuContext } from "../../context/sudokuContext";
 import ResolvedSudoku from "./ArraySudoku/ResolvedSudoku";
 import ModalInformation from "../ModalInformation/ModalInformation";
 import { RulesPlaySudoku } from "../../functions/RulesGames";
+import { UserAndModalContext } from "../../context/userAndModalContext";
 
 const BoardSudoku = () => {
   const { solution, comprobation, casillas, incomplete, dispatch, originalSudokuBoard } =
     useContext(sudokuContext);
 
-  //Array que se va creando al ir rellenando la info!
+  const { handleOpen } = useContext(UserAndModalContext);
+
   const [resolutionSudoku, setResolutionSudoku] = useState([]);
-
-  // Array que me dirá los valores iguales y los diferentes!
-  //Mostrar solamente al final, cuando ya no se tenga de mostrar nada
   const [newArray, setNewArray] = useState([]);
-
-  //Estados del modal
-  const [open, setOpen] = useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
 
   return (
     <>
@@ -102,7 +96,10 @@ const BoardSudoku = () => {
         </div>
       )}
 
-      <ModalInformation open={open} handleClose={handleClose} nameGame={"Sudoku"} rules={RulesPlaySudoku} />
+      <ModalInformation
+        nameGame={"Sudoku"}
+        rules={RulesPlaySudoku}
+      />
     </>
   );
 };

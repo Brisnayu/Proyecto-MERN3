@@ -1,9 +1,3 @@
-const originalBoardTicTacToe = [
-  ["", "", ""],
-  ["", "", ""],
-  ["", "", ""],
-];
-
 export const INITIAL_STATE_TIC_TAC_TOE = {
   starGame: false,
   winnerPosition: "",
@@ -14,7 +8,6 @@ export const INITIAL_STATE_TIC_TAC_TOE = {
   openTied: false, //EMPATE!!! open2
   turn: "",
   winner: false,
-  boardTicTacToe: [...originalBoardTicTacToe],
 };
 
 export const reducerTicTacToe = (state, action) => {
@@ -28,7 +21,6 @@ export const reducerTicTacToe = (state, action) => {
       return {
         ...state,
         turn: "",
-        boardTicTacToe: [...originalBoardTicTacToe],
         winner: false,
         winnerO: 0,
         winnerX: 0,
@@ -89,7 +81,6 @@ export const reducerTicTacToe = (state, action) => {
     case "RESETEAR_PARTIDA":
       return {
         ...state,
-        boardTicTacToe: [...originalBoardTicTacToe],
         winner: false,
       };
     case "CERRAR_MODAL_EMPATE":
@@ -106,7 +97,6 @@ export const reducerTicTacToe = (state, action) => {
       return {
         ...state,
         starGame: false,
-        boardTicTacToe: [...originalBoardTicTacToe],
       };
   }
 };

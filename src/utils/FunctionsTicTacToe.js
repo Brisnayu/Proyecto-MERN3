@@ -1,44 +1,28 @@
 export const changedBoardTicTacToe = (
   boardTicTacToe,
   turn,
-  setTurn,
   setBoardTicTacToe,
   indexColumn,
   indexRow,
+  dispatch,
 ) => {
   const position = [...boardTicTacToe];
-  const valueColumn = indexColumn;
-  const valueRow = indexRow;
 
-  if (position[valueColumn][valueRow] === null) {
-    position[valueColumn][valueRow] = turn;
-    turn === "X" ? setTurn("O") : setTurn("X");
+  if (position[indexRow][indexColumn] === null) {
+    position[indexRow][indexColumn] = turn;
+    dispatch({ type: "CAMBIAR_FICHA_TURNO" });
   }
 
   setBoardTicTacToe(position);
 };
 
-export const getArraySolutions = (
-  setWinner,
-  setOpen1,
-  setWinnerX,
-  winnerX,
-  setWinnerO,
-  winnerO,
-  boardTicTacToe,
-  setWinnerPosition,
-  setOpen2, 
-  setTied,
-  turn, 
-  tied
-) => {
+export const getArraySolutions = (boardTicTacToe, turn, dispatch) => {
   const getWinner = () => {
-    setWinner(true);
-    setOpen1(true);
+    dispatch({ type: "HAY_UN_GANADOR" });
     if (turn === "X") {
-      setWinnerX(winnerX + 1);
+      dispatch({ type: "GANADOR_X" });
     } else if (turn === "O") {
-      setWinnerO(winnerO + 1);
+      dispatch({ type: "GANADOR_O" });
     }
   };
 
@@ -48,35 +32,35 @@ export const getArraySolutions = (
     boardTicTacToe[0][0] !== null
   ) {
     getWinner();
-    return setWinnerPosition("vertical");
+    return dispatch({ type: "GANADOR_VERTICAL" });
   } else if (
     boardTicTacToe[0][1] === boardTicTacToe[1][1] &&
     boardTicTacToe[1][1] === boardTicTacToe[2][1] &&
     boardTicTacToe[0][1] !== null
   ) {
     getWinner();
-    return setWinnerPosition("vertical");
+    return dispatch({ type: "GANADOR_VERTICAL" });
   } else if (
     boardTicTacToe[0][2] === boardTicTacToe[1][2] &&
     boardTicTacToe[1][2] === boardTicTacToe[2][2] &&
     boardTicTacToe[0][2] !== null
   ) {
     getWinner();
-    return setWinnerPosition("vertical");
+    return dispatch({ type: "GANADOR_VERTICAL" });
   } else if (
     boardTicTacToe[0][0] === boardTicTacToe[1][1] &&
     boardTicTacToe[1][1] === boardTicTacToe[2][2] &&
     boardTicTacToe[0][0] !== null
   ) {
     getWinner();
-    return setWinnerPosition("diagonal");
+    return dispatch({ type: "GANADOR_DIAGONAL" });
   } else if (
     boardTicTacToe[0][2] === boardTicTacToe[1][1] &&
     boardTicTacToe[1][1] === boardTicTacToe[2][0] &&
     boardTicTacToe[0][2] !== null
   ) {
     getWinner();
-    return setWinnerPosition("diagonal");
+    return dispatch({ type: "GANADOR_DIAGONAL" });
   }
 
   for (let i = 0; i < 3; i++) {
@@ -88,7 +72,7 @@ export const getArraySolutions = (
 
     if (horizontalComparative === true) {
       getWinner();
-      return setWinnerPosition("horizontal");
+      return dispatch({ type: "GANADOR_HORIZONTAL" });
     }
   }
 
@@ -97,7 +81,6 @@ export const getArraySolutions = (
 
   if (prueba !== null) {
     // console.log("no hay ganador y no hay más casillas!")
-    setOpen2(true);
-    setTied(tied + 1);
+    dispatch({ type: "EMPATE" });
   }
 };

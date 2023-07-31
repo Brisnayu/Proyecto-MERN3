@@ -1,9 +1,9 @@
 import { useContext } from "react";
-import { UserContext } from "../../context/userContext";
+import { UserAndModalContext } from "../../context/userAndModalContext";
 import { Navigate } from "react-router-dom";
 
 const RouteInit = ({ children }) => {
-  const { user } = useContext(UserContext);
+  const { user } = useContext(UserAndModalContext);
 
   if (user) {
     return children;

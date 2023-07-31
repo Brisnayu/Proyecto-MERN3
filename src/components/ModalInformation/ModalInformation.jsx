@@ -2,6 +2,8 @@ import { Modal, Typography } from "@mui/material";
 import { styled } from "styled-components";
 import { ButtonSyled } from "../UI/ButtonStyled";
 import { v4 as uuidv4 } from "uuid";
+import { useContext } from "react";
+import { UserAndModalContext } from "../../context/userAndModalContext";
 
 export const ContainerModal = styled.div`
   position: absolute;
@@ -23,7 +25,10 @@ export const ContainerModal = styled.div`
   height: 30rem;
 `;
 
-const ModalInformation = ({ open, handleClose, nameGame, rules }) => {
+const ModalInformation = ({ nameGame, rules }) => {
+
+  const { open, handleClose } = useContext(UserAndModalContext);
+
   return (
     <Modal
       open={open}

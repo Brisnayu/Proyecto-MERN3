@@ -16,7 +16,6 @@ const TicTacToeContextProvider = ({ children }) => {
     openTied,
     turn,
     winner,
-    boardTicTacToe,
   } = state;
 
   return (
@@ -31,7 +30,6 @@ const TicTacToeContextProvider = ({ children }) => {
         openTied,
         turn,
         winner,
-        boardTicTacToe,
         dispatch,
       }}
     >

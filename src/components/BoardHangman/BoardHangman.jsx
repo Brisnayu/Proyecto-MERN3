@@ -1,5 +1,5 @@
 import "./BoardHangman.css";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import GameInit from "../GameInit/GameInit";
 import { ButtonSyled } from "../UI/ButtonStyled";
 import ModalInformation from "../ModalInformation/ModalInformation";
@@ -7,14 +7,13 @@ import { RulesPlayHangman } from "../../functions/RulesGames";
 import HangmanInit from "./HangmanInit/HangmanInit";
 import HangmanAnswers from "./HangmanAnswers/HangmanAnswers";
 import { hangmanContext } from "../../context/hangmanContext";
+import { UserAndModalContext } from "../../context/userAndModalContext";
 
 const BoardHangman = () => {
 
   const { initialGame, dispatch } = useContext(hangmanContext);
 
-  const [open, setOpen] = useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+  const { handleOpen } = useContext(UserAndModalContext);
 
   return (
     <>
@@ -35,8 +34,6 @@ const BoardHangman = () => {
           <GameInit imgInit="https://res.cloudinary.com/dx8j6h1rb/image/upload/v1690376140/Proyecto6%2C%20Hub%20de%20Juegos/open-door_rfp49w.png" />
 
           <ModalInformation
-            open={open}
-            handleClose={handleClose}
             nameGame={"El Ahorcado"}
             rules={RulesPlayHangman}
           />
