@@ -9,7 +9,7 @@ const ContainerInit = styled.div`
 
   > img {
     border-radius: 30%;
-    width: 80%;
+    width: 100%;
   }
 
   > p {

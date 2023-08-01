@@ -1,5 +1,4 @@
 import { useContext, useState } from "react";
-import { ButtonBack, ButtonSyled } from "../UI/ButtonStyled";
 import "./BoardTictactoe.css";
 import GameInit from "../GameInit/GameInit";
 import ModalInformation from "../ModalInformation/ModalInformation";
@@ -8,6 +7,7 @@ import ModalResult from "./ModalResult/ModalResult";
 import { tictactoeContext } from "../../context/tictactoeContext";
 import GameTictactoe from "./GameTictactoe/GameTictactoe";
 import { UserAndModalContext } from "../../context/userAndModalContext";
+import ContainerButtonsInitial from "../ContainerButtons/ContainerButtonsInitial";
 
 const BoardTictactoe = () => {
   const { starGame, winnerPosition, openWinner, openTied, turn, winner, dispatch } =
@@ -27,15 +27,11 @@ const BoardTictactoe = () => {
     <>
       {!starGame ? (
         <>
-          <div className="container-group-buttons">
-            <ButtonSyled onClick={() => dispatch({ type: "INICIAR_PARTIDA" })}>
-              Iniciar juego
-            </ButtonSyled>
-            <ButtonSyled onClick={() => handleOpen()}>¿Cómo jugar?</ButtonSyled>
-          </div>
-
+          <ContainerButtonsInitial
+            start={() => dispatch({ type: "INICIAR_PARTIDA" })}
+            howToPlay={() => handleOpen()}
+          />
           <GameInit imgInit="https://res.cloudinary.com/dx8j6h1rb/image/upload/v1690376140/Proyecto6%2C%20Hub%20de%20Juegos/two-people_ooxblq.png" />
-
           <ModalInformation nameGame={"Tres en Raya"} rules={RulesPlayTicTacToe} />
         </>
       ) : (

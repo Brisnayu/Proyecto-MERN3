@@ -7,7 +7,8 @@ import {
   getArraySolutions,
 } from "../../../utils/FunctionsTicTacToe";
 import ScoreTable from "../ScoreTable/ScoreTable";
-import { ButtonBack, ButtonSyled, ButtonTicTacToe } from "../../UI/ButtonStyled";
+import { ButtonTicTacToe } from "../../UI/ButtonGames";
+import ContainerButtonsFinish from "../../ContainerButtons/ContainerButtonsFinish";
 
 const GameTictactoe = ({ boardTicTacToe, setBoardTicTacToe, originalBoardTicTacToe }) => {
   const { winnerX, winnerO, tied, turn, dispatch } = useContext(tictactoeContext);
@@ -62,25 +63,16 @@ const GameTictactoe = ({ boardTicTacToe, setBoardTicTacToe, originalBoardTicTacT
       </section>
 
       {turn !== "" && (
-        <div className="buttons-games">
-          <ButtonSyled
-            style={{ color: "black" }}
-            onClick={() => {
-              dispatch({ type: "REINICIAR_PARTIDA" });
-              setBoardTicTacToe(originalBoardTicTacToe);
-            }}
-          >
-            Reiniciar
-          </ButtonSyled>
-          <ButtonBack
-            onClick={() => {
-              dispatch({ type: "SALIR_JUEGO" });
-              setBoardTicTacToe(originalBoardTicTacToe);
-            }}
-          >
-            Salir
-          </ButtonBack>
-        </div>
+        <ContainerButtonsFinish
+          restart={() => {
+            dispatch({ type: "REINICIAR_PARTIDA" });
+            setBoardTicTacToe(originalBoardTicTacToe);
+          }}
+          exit={() => {
+            dispatch({ type: "SALIR_JUEGO" });
+            setBoardTicTacToe(originalBoardTicTacToe);
+          }}
+        />
       )}
     </>
   );

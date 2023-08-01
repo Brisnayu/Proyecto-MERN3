@@ -79,11 +79,6 @@
   pointer-events: none;
 }
 
-.buttons-games {
-  display: flex;
-  gap: 1rem;
-}
-
 @media screen and (max-width: 960px) {
   .container-board {
     /* border: 1px solid green; */

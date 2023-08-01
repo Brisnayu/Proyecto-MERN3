@@ -1,10 +1,10 @@
 import { useContext, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
-import { ButtonBack, ButtonSyled } from "../../UI/ButtonStyled";
 import { styled } from "styled-components";
 import { hangmanContext } from "../../../context/hangmanContext";
 import { handleButtonLetter } from "../../../utils/FunctionsHangman";
 import FinishGame from "../FinishGame/FinishGame";
+import ContainerButtonsFinish from "../../ContainerButtons/ContainerButtonsFinish";
 
 const AlphabetContainer = styled.div`
   display: flex;
@@ -77,17 +77,13 @@ const HangmanInit = () => {
         <FinishGame />
       )}
 
-      <div>
-        <ButtonSyled
-          onClick={() => {
+      <ContainerButtonsFinish 
+      restart={() => {
             dispatch({ type: "REINICIAR_JUEGO" });
             dispatch({ type: "CREAR_ARRAY_GAME" });
           }}
-        >
-          Reiniciar
-        </ButtonSyled>
-        <ButtonBack onClick={() => dispatch({ type: "SALIR_JUEGO" })}>Salir</ButtonBack>
-      </div>
+      exit={() => dispatch({ type: "SALIR_JUEGO" })}
+      />
     </>
   );
 };

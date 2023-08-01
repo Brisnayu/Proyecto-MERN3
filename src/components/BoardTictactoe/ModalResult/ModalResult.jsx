@@ -1,6 +1,6 @@
 import { Modal } from "@mui/material";
 import { ContainerModal } from "../../ModalInformation/ModalInformation";
-import { ButtonSyled } from "../../UI/ButtonStyled";
+import ButtonUI from "../../UI/ButtonUI/ButtonUI";
 
 const ModalResult = ({
   open,
@@ -17,12 +17,14 @@ const ModalResult = ({
         <h2>{text}</h2>
         <p>{position}</p>
 
-        <ButtonSyled
-          style={{ color: "black" }}
-          onClick={() => {handleCloseResult(); funcionality()}}
-        >
-          Nueva partida
-        </ButtonSyled>
+        <ButtonUI
+          className="basic-button"
+          funcionality={() => {
+            handleCloseResult();
+            funcionality();
+          }}
+          text="Nueva partida"
+        />
       </ContainerModal>
     </Modal>
   );

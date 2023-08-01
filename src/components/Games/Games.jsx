@@ -1,8 +1,6 @@
 import { v4 as uuidv4 } from "uuid";
 import { ArrayGames } from "../../functions/ArrayGames";
 import CardGames from "../CardGames/CardGames";
-import Footer from "../FooterSection/FooterSection";
-import Header from "../HeaderSection/HeaderSection";
 import "./Games.css";
 
 const Games = () => {

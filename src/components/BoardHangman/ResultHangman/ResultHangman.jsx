@@ -10,7 +10,7 @@ const ContainerFinishHangman = styled.div`
   padding-bottom: 1.5rem;
 
   > img {
-    width: 50%;
+    width: 40%;
     height: auto;
   }
 `;

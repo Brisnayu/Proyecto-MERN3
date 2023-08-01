@@ -1,6 +1,6 @@
-import { useState } from "react";
-import { ButtonSyled } from "../UI/ButtonStyled";
 import "./Form.css";
+import { useState } from "react";
+import ButtonUI from "../UI/ButtonUI/ButtonUI";
 
 const Form = ({ setUser }) => {
   const [inputValue, setInputValue] = useState("");
@@ -25,7 +25,11 @@ const Form = ({ setUser }) => {
         <label>
           <input type="password" placeholder="Introduce la clave" />
         </label>
-        <ButtonSyled onClick={() => setUser(inputValue)}>Entrar</ButtonSyled>
+        <ButtonUI
+          className="basic-button"
+          funcionality={() => setUser(inputValue)}
+          text="Entrar"
+        />
       </section>
     </article>
   );

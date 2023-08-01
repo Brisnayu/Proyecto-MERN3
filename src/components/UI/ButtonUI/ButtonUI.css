@@ -1,0 +1,30 @@
+.basic-style-button {
+   width: 8rem;
+  height: 2rem;
+  border-radius: 10px;
+  font-weight: bold;
+  transition: all 0.5s ease-in-out;
+  font-size: 1rem; 
+}
+
+.basic-button {
+  background-color: var(--color-secondary);
+  color: var(--color-background);
+}
+
+.back-button {
+  background-color: var(--color-terciary);
+  color: var(--color-contrast);
+}
+
+.back-button:hover {
+  box-shadow: 0px 0px 20px 10px var(--color-terciary);
+  border: none;
+  cursor: pointer;
+}
+
+.basic-button:hover {
+  box-shadow: 0px 0px 20px 10px var(--color-secondary);
+  border: none;
+  cursor: pointer;
+}

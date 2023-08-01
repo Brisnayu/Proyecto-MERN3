@@ -1,9 +1,9 @@
 import { Modal, Typography } from "@mui/material";
 import { styled } from "styled-components";
-import { ButtonSyled } from "../UI/ButtonStyled";
 import { v4 as uuidv4 } from "uuid";
 import { useContext } from "react";
 import { UserAndModalContext } from "../../context/userAndModalContext";
+import ButtonUI from "../UI/ButtonUI/ButtonUI";
 
 export const ContainerModal = styled.div`
   position: absolute;
@@ -26,7 +26,6 @@ export const ContainerModal = styled.div`
 `;
 
 const ModalInformation = ({ nameGame, rules }) => {
-
   const { open, handleClose } = useContext(UserAndModalContext);
 
   return (
@@ -40,11 +39,17 @@ const ModalInformation = ({ nameGame, rules }) => {
         <Typography id="modal-modal-title" variant="h6" component="h2">
           ¡Juega {nameGame} en todo momento!
         </Typography>
-        {rules.map((rule) => <li key={uuidv4()}>🔹 {rule}</li>)}
+        {rules.map((rule) => (
+          <li key={uuidv4()}>🔹 {rule}</li>
+        ))}
         <Typography id="modal-modal-description" sx={{ mt: 4 }}>
-         ¡Disfruta del desafío!
+          ¡Disfruta del desafío!
         </Typography>
-        <ButtonSyled style={{ color: "black" }} onClick={handleClose}>Lo tengo 🚀</ButtonSyled>
+        <ButtonUI
+          className="basic-button"
+          funcionality={handleClose}
+          text="Lo tengo 🚀"
+        />
       </ContainerModal>
     </Modal>
   );

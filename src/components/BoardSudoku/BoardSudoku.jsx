@@ -1,6 +1,5 @@
 import "./BoardSudoku.css";
 import { useContext, useState } from "react";
-import { ButtonBack, ButtonSyled } from "../UI/ButtonStyled";
 import GameInit from "../GameInit/GameInit";
 import ArraySudoku from "./ArraySudoku/ArraySudoku";
 import MessageAlert from "./MessageAlert/MessageAlert";
@@ -11,6 +10,9 @@ import ResolvedSudoku from "./ArraySudoku/ResolvedSudoku";
 import ModalInformation from "../ModalInformation/ModalInformation";
 import { RulesPlaySudoku } from "../../functions/RulesGames";
 import { UserAndModalContext } from "../../context/userAndModalContext";
+import ButtonUI from "../UI/ButtonUI/ButtonUI";
+import ContainerButtonsFinish from "../ContainerButtons/ContainerButtonsFinish";
+import ContainerButtonsInitial from "../ContainerButtons/ContainerButtonsInitial";
 
 const BoardSudoku = () => {
   const { solution, comprobation, casillas, incomplete, dispatch, originalSudokuBoard } =
@@ -25,34 +27,36 @@ const BoardSudoku = () => {
     <>
       {!solution && originalSudokuBoard.length === 0 ? (
         <>
-          <div className="container-group-buttons">
-            <ButtonSyled onClick={() => dispatch({ type: "INITIAL_VALUE" })}>
-              Iniciar juego
-            </ButtonSyled>
-            <ButtonSyled onClick={() => handleOpen()}>¿Cómo jugar?</ButtonSyled>
-          </div>
+          <ContainerButtonsInitial
+            start={() => dispatch({ type: "INITIAL_VALUE" })}
+            howToPlay={() => handleOpen()}
+          />
           <GameInit imgInit="https://res.cloudinary.com/dx8j6h1rb/image/upload/v1690376140/Proyecto6%2C%20Hub%20de%20Juegos/door-closed_m7meln.png" />
         </>
       ) : !comprobation ? (
         <>
           <div className="container-group-buttons">
-            <ButtonSyled onClick={() => dispatch({ type: "INITIAL_VALUE" })}>
-              Reiniciar
-            </ButtonSyled>
+            <ButtonUI
+              className="basic-button"
+              funcionality={() => dispatch({ type: "SOLUCION_VALUE" })}
+              text="Solución"
+            />
 
             {!casillas ? (
-              <ButtonSyled onClick={() => readyComparation(resolutionSudoku, dispatch)}>
-                Comprobar
-              </ButtonSyled>
+              <ButtonUI
+                className="basic-button"
+                funcionality={() => readyComparation(resolutionSudoku, dispatch)}
+                text="Comprobar"
+              />
             ) : (
-              <ButtonSyled
-                onClick={() => {
+              <ButtonUI
+                className="basic-button"
+                funcionality={() => {
                   equality(originalSudokuBoard, resolutionSudoku, setNewArray, dispatch);
                   dispatch({ type: "ESTOY_LISTO" });
                 }}
-              >
-                Estoy listo!
-              </ButtonSyled>
+                text="¡Estoy listo!"
+              />
             )}
           </div>
 
@@ -80,20 +84,20 @@ const BoardSudoku = () => {
       ) : (
         <div className="container-sudoku-solution">
           <AlertSudoku />
-          <ButtonSyled onClick={() => dispatch({ type: "INITIAL_VALUE" })}>
-            Reiniciar
-          </ButtonSyled>
+          <ButtonUI
+            className="basic-button"
+            funcionality={() => dispatch({ type: "INITIAL_VALUE" })}
+            text="Reiniciar"
+          />
           <ResolvedSudoku newArray={newArray} />
         </div>
       )}
 
       {solution && (
-        <div className="container-group-buttons">
-          <ButtonSyled type="submit" onClick={() => dispatch({ type: "SOLUCION_VALUE" })}>
-            Solución
-          </ButtonSyled>
-          <ButtonBack onClick={() => dispatch({ type: "SALIR_VALUE" })}>Salir</ButtonBack>
-        </div>
+        <ContainerButtonsFinish
+          restart={() => dispatch({ type: "INITIAL_VALUE" })}
+          exit={() => dispatch({ type: "SALIR_VALUE" })}
+        />
       )}
 
       <ModalInformation nameGame={"Sudoku"} rules={RulesPlaySudoku} />
