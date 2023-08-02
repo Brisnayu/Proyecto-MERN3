@@ -1,7 +1,6 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
 import AccessDenied from "../components/AccessDenied/AccessDenied";
-import ButtonUI from "../components/UI/ButtonUI/ButtonUI";
+import { NavLink } from "react-router-dom";
+import { ButtonLink } from "../components/UI/ButtonGames";
 
 const NotFound = () => {
   return (
@@ -11,9 +10,9 @@ const NotFound = () => {
         alt="gif-not-found"
         text="Lo siento, la página que buscas no está disponible o es incorrecta."
       />
-      <button>
-        <NavLink to="/">Inicio</NavLink>
-      </button>
+      <ButtonLink>
+        <NavLink to="/">Volver</NavLink>
+      </ButtonLink>
     </main>
   );
 };

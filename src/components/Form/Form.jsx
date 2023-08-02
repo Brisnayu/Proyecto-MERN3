@@ -1,9 +1,15 @@
 import "./Form.css";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { UserAndModalContext } from "../../context/userAndModalContext";
 import ButtonUI from "../UI/ButtonUI/ButtonUI";
 
-const Form = ({ setUser }) => {
+const Form = () => {
+  const { setUser, setPassword } = useContext(UserAndModalContext);
   const [inputValue, setInputValue] = useState("");
+  const [inputPassword, setInputPassword] = useState("");
+
+  const getUser = (event) => setInputValue(event.target.value);
+  const getPassword = (event) => setInputPassword(event.target.value);
 
   return (
     <article className="container-form">
@@ -17,19 +23,28 @@ const Form = ({ setUser }) => {
         <h2>Habla amigo y entra</h2>
         <label>
           <input
-            onInput={(event) => setInputValue(event.target.value)}
+            onInput={(event) => getUser(event)}
             type="text"
-            placeholder="Introduce el nombre"
+            placeholder="Introduce tu nombre"
           />
         </label>
         <label>
-          <input type="password" placeholder="Introduce la clave" />
+          <input
+            type="password"
+            placeholder="Introduce la clave"
+            onInput={(event) => getPassword(event)}
+          />
         </label>
-        <ButtonUI
-          className="basic-button"
-          funcionality={() => setUser(inputValue)}
-          text="Entrar"
-        />
+
+        {inputValue !== "" && (
+          <ButtonUI
+            className="basic-button"
+            funcionality={() => {
+              setUser(inputValue), setPassword(inputPassword);
+            }}
+            text="Entrar"
+          />
+        )}
       </section>
     </article>
   );

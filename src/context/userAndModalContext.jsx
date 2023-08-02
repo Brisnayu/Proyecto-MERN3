@@ -4,6 +4,7 @@ export const UserAndModalContext = createContext();
 
 const UserAndModalContextProvider = ({ children }) => {
   const [user, setUser] = useState(null);
+  const [password, setPassword] = useState(null);
 
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
@@ -11,7 +12,7 @@ const UserAndModalContextProvider = ({ children }) => {
 
   return (
     <UserAndModalContext.Provider
-      value={{ user, setUser, open, setOpen, handleOpen, handleClose }}
+      value={{ user, setUser, password, setPassword, open, setOpen, handleOpen, handleClose }}
     >
       {children}
     </UserAndModalContext.Provider>

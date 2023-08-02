@@ -4,7 +4,6 @@ import { styled } from "styled-components";
 import { hangmanContext } from "../../../context/hangmanContext";
 import { handleButtonLetter } from "../../../utils/FunctionsHangman";
 import FinishGame from "../FinishGame/FinishGame";
-import ContainerButtonsFinish from "../../ContainerButtons/ContainerButtonsFinish";
 
 const AlphabetContainer = styled.div`
   display: flex;
@@ -41,6 +40,9 @@ const HangmanInit = () => {
   const { chance, wrongLetters, selectedWord, selectedLetters, arrayGame, dispatch } =
     useContext(hangmanContext);
 
+    console.log("en HANGMANINIT", arrayGame)
+    console.log("en HANGMANINIT", selectedWord)
+
   return (
     <>
       <h2>Te quedan {chance} intentos</h2>
@@ -76,14 +78,6 @@ const HangmanInit = () => {
       ) : (
         <FinishGame />
       )}
-
-      <ContainerButtonsFinish 
-      restart={() => {
-            dispatch({ type: "REINICIAR_JUEGO" });
-            dispatch({ type: "CREAR_ARRAY_GAME" });
-          }}
-      exit={() => dispatch({ type: "SALIR_JUEGO" })}
-      />
     </>
   );
 };

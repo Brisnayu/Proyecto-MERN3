@@ -1,14 +1,15 @@
-import { letterAlphabet, wordsHangman } from "../functions/ArrayHangman";
+import { letterAlphabet } from "../functions/ArrayHangman";
 
-const getWordGame = () => {
-  const numberRandom = Math.random() * wordsHangman.length;
+const getWordGame = (valueGame) => {
+  const numberRandom = Math.random() * valueGame.length;
   const positionArray = Math.floor(numberRandom);
 
-  return wordsHangman[positionArray].split("");
+  return valueGame[positionArray].split("");
 };
 
 export const INITIAL_STATE_HANGMAN = {
   initialGame: false,
+  ready: false,
   chance: 10,
   wrongLetters: [],
   selectedWord: [],
@@ -22,9 +23,17 @@ export const reducerHangman = (state, action) => {
       return {
         ...state,
         initialGame: true,
-        selectedWord: getWordGame(),
       };
-
+    case "COMENZAR_JUEGO":
+      return {
+        ...state,
+        selectedWord: getWordGame(action.arrayGameHangman),
+      };
+    case "ESTOY_LISTO":
+      return {
+        ...state,
+        ready: true,
+      };
     case "CREAR_ARRAY_GAME":
       return {
         ...state,
@@ -33,7 +42,7 @@ export const reducerHangman = (state, action) => {
     case "REINICIAR_JUEGO":
       return {
         ...state,
-        selectedWord: getWordGame(),
+        selectedWord: getWordGame(action.arrayGameHangman),
         chance: 10,
         wrongLetters: [],
         selectedLetters: letterAlphabet,
@@ -64,7 +73,7 @@ export const reducerHangman = (state, action) => {
     case "SALIR_JUEGO":
       return {
         ...state,
-        initialGame: false,
+        ready: false,
         wrongLetters: [],
         chance: 10,
         selectedLetters: letterAlphabet,

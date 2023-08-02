@@ -1,5 +1,6 @@
 import { NavLink } from "react-router-dom";
 import "./CardGames.css";
+import { ButtonLink } from "../UI/ButtonGames";
 
 const CardGames = ({ title, subtitle, descrip, link, src, alt }) => {
   return (
@@ -8,9 +9,9 @@ const CardGames = ({ title, subtitle, descrip, link, src, alt }) => {
         <h3>{title}</h3>
         <h2>{subtitle}</h2>
         <p>{descrip}</p>
-        <button>
-            <NavLink to={link}>Jugar!</NavLink>
-        </button>
+        <ButtonLink>
+            <NavLink to={link}>¡Jugar!</NavLink>
+        </ButtonLink>
       </section>
       <section className="card-games-img">
         <img src={src} alt={alt} />

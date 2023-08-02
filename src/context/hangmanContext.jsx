@@ -13,6 +13,7 @@ const HangmanContextProvider = ({ children }) => {
     selectedWord,
     arrayGame,
     selectedLetters,
+    ready
   } = state;
 
   return (
@@ -24,6 +25,7 @@ const HangmanContextProvider = ({ children }) => {
         selectedWord,
         arrayGame,
         selectedLetters,
+        ready,
         dispatch,
       }}
     >

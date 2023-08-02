@@ -1,5 +1,5 @@
 import "./BoardHangman.css";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import GameInit from "../GameInit/GameInit";
 import ModalInformation from "../ModalInformation/ModalInformation";
 import { RulesPlayHangman } from "../../functions/RulesGames";
@@ -8,21 +8,23 @@ import HangmanAnswers from "./HangmanAnswers/HangmanAnswers";
 import { hangmanContext } from "../../context/hangmanContext";
 import { UserAndModalContext } from "../../context/userAndModalContext";
 import ContainerButtonsInitial from "../ContainerButtons/ContainerButtonsInitial";
+import ContainerButtonsFinish from "../ContainerButtons/ContainerButtonsFinish";
+import { wordsHangmanTLOTR, wordsHangmanRandom } from "../../functions/ArrayHangman";
+import ButtonUI from "../UI/ButtonUI/ButtonUI";
+import ButtonSelect from "./ButtonSelect/ButtonSelect";
 
 const BoardHangman = () => {
-  const { initialGame, dispatch } = useContext(hangmanContext);
-
+  const { initialGame, ready, dispatch } = useContext(hangmanContext);
   const { handleOpen } = useContext(UserAndModalContext);
+
+  const [arrayGameHangman, setArrayGameHangman] = useState([]);
 
   return (
     <>
       {!initialGame ? (
         <>
           <ContainerButtonsInitial
-            start={() => {
-              dispatch({ type: "INICIAR_JUEGO" });
-              dispatch({ type: "CREAR_ARRAY_GAME" });
-            }}
+            start={() => dispatch({ type: "INICIAR_JUEGO" })}
             howToPlay={() => handleOpen()}
           />
 
@@ -31,14 +33,54 @@ const BoardHangman = () => {
           <ModalInformation nameGame={"El Ahorcado"} rules={RulesPlayHangman} />
         </>
       ) : (
-        <div className="container-initial-game">
-          <div>
-            <HangmanAnswers />
-          </div>
-          <div className="container-letter">
-            <HangmanInit />
-          </div>
-        </div>
+        <>
+          {!ready ? (
+            <div className="container-buttons-hangman">
+              <div className="selected-button-hangman">
+                <ButtonSelect
+                  className={arrayGameHangman === wordsHangmanRandom && "select"}
+                  imgButton="https://i.pinimg.com/564x/46/7f/80/467f808e34b1230d3e7ad71e797a7af3.jpg"
+                  text="Palabra aleatoria"
+                  funcionality={() => setArrayGameHangman(wordsHangmanRandom)}
+                />
+                <ButtonSelect
+                  className={arrayGameHangman === wordsHangmanTLOTR && "select"}
+                  imgButton="https://i.pinimg.com/564x/b2/cc/7f/b2cc7f33f3d161fde43e024109fd4311.jpg"
+                  text="Palabra TLOTR"
+                  funcionality={() => setArrayGameHangman(wordsHangmanTLOTR)}
+                />
+              </div>
+
+              {arrayGameHangman.length > 0 && (
+                <ButtonUI
+                  className="basic-button"
+                  text="INICIAR PARTIDA"
+                  funcionality={() => {
+                    dispatch({ type: "COMENZAR_JUEGO", arrayGameHangman }),
+                      dispatch({ type: "CREAR_ARRAY_GAME" }),
+                      dispatch({ type: "ESTOY_LISTO" });
+                  }}
+                />
+              )}
+            </div>
+          ) : (
+            <div className="container-initial-game">
+              <div>
+                <HangmanAnswers />
+              </div>
+              <div className="container-letter">
+                <HangmanInit />
+              </div>
+              <ContainerButtonsFinish
+                restart={() => {
+                  dispatch({ type: "REINICIAR_JUEGO", arrayGameHangman }),
+                  dispatch({ type: "CREAR_ARRAY_GAME" });
+                }}
+                exit={() => dispatch({ type: "SALIR_JUEGO" })}
+              />
+            </div>
+          )}
+        </>
       )}
     </>
   );

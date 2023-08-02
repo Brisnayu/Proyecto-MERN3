@@ -4,6 +4,11 @@ import { styled } from "styled-components";
 const ButtonsGames = styled.div`
   display: flex;
   gap: 5rem;
+  margin: 1rem;
+
+  @media screen and (max-width: 768px) {
+    gap: 1rem;
+  }
 `;
 
 const ContainerButtonsFinish = ({ restart, exit }) => {
