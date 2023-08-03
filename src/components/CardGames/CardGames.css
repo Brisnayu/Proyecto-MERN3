@@ -4,8 +4,8 @@
   align-content: center;
   width: 80%;
   height: 20rem;
-  /* position: absolute; */
   color: var(--color-primary);
+  animation: reveal 1s ease-in-out;
 }
 
 .card-games-text {

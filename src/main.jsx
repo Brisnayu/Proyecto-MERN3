@@ -1,16 +1,18 @@
-import React from "react";
+import "./index.css";
+import React, { lazy } from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
-import "./index.css";
-import UserAndModalContextProvider from "./context/userAndModalContext.jsx";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import RouteInit from "./components/RouteInit/RouteInit.jsx";
 
-import Hangman from "./pages/Hangman.jsx";
-import Tictactoe from "./pages/Tictactoe.jsx";
-import Sudoku from "./pages/Sudoku.jsx";
-import NotFound from "./pages/NotFound.jsx";
-import Home from "./pages/Home.jsx";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import UserAndModalContextProvider from "./context/userAndModalContext.jsx";
+import RouteInit from "./components/RouteInit/RouteInit.jsx";
+import Spinner from "./components/Spinner/Spinner";
+
+const Home = lazy(() => import("./pages/Home.jsx"));
+const Tictactoe = lazy(() => import("./pages/Tictactoe.jsx"));
+const Hangman = lazy(() => import("./pages/Hangman.jsx"));
+const Sudoku = lazy(() => import("./pages/Sudoku.jsx"));
+const NotFound = lazy(() => import("./pages/NotFound.jsx"));
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
@@ -18,13 +20,45 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       <BrowserRouter basename="/">
         <Routes>
           <Route path="/" element={<App />}>
-            {/* <RouteInit> */}
             <Route index element={<Home />} />
-            <Route path="/hangman" element={<Hangman />} />
-            <Route path="/tictactoe" element={<Tictactoe />} />
-            <Route path="/sudoku" element={<Sudoku />} />
-            {/* </RouteInit> */}
-            <Route path="*" element={<NotFound />} />
+            <Route
+              path="/hangman"
+              element={
+                <React.Suspense fallback={<Spinner />}>
+                  <RouteInit>
+                    <Hangman />
+                  </RouteInit>
+                </React.Suspense>
+              }
+            />
+            <Route
+              path="/tictactoe"
+              element={
+                <React.Suspense fallback={<Spinner />}>
+                  <RouteInit>
+                    <Tictactoe />
+                  </RouteInit>
+                </React.Suspense>
+              }
+            />
+            <Route
+              path="/sudoku"
+              element={
+                <React.Suspense fallback={<Spinner />}>
+                  <RouteInit>
+                    <Sudoku />
+                  </RouteInit>
+                </React.Suspense>
+              }
+            />
+            <Route
+              path="*"
+              element={
+                <React.Suspense fallback={<Spinner />}>
+                  <NotFound />
+                </React.Suspense>
+              }
+            />
           </Route>
         </Routes>
       </BrowserRouter>

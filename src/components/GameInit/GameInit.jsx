@@ -6,6 +6,7 @@ const ContainerInit = styled.div`
   align-items: center;
   gap: 1rem;
   margin: 1rem 0;
+  animation: reveal 1s ease-in-out;
 
   > img {
     border-radius: 30%;

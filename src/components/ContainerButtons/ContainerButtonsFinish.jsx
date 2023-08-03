@@ -5,6 +5,7 @@ const ButtonsGames = styled.div`
   display: flex;
   gap: 5rem;
   margin: 1rem;
+  animation: reveal 1s ease-in-out;
 
   @media screen and (max-width: 768px) {
     gap: 1rem;

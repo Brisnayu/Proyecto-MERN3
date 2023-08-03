@@ -3,9 +3,9 @@ import { UserAndModalContext } from "../../context/userAndModalContext";
 import { Navigate } from "react-router-dom";
 
 const RouteInit = ({ children }) => {
-  const { user } = useContext(UserAndModalContext);
+  const { password } = useContext(UserAndModalContext);
 
-  if (user) {
+  if (password === "amigo") {
     return children;
   } else {
     return <Navigate to="/" />;

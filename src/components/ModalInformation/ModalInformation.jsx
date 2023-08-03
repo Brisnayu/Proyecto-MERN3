@@ -23,6 +23,7 @@ export const ContainerModal = styled.div`
   overflow: auto;
   width: 80%;
   height: 30rem;
+  animation: reveal 1s ease-in-out;
 `;
 
 const ModalInformation = ({ nameGame, rules }) => {

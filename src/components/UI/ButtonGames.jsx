@@ -55,6 +55,7 @@ export const ButtonImage = styled.button`
   margin: 2rem;
   position: relative;
   transition: all 0.4s ease-in-out;
+  animation: reveal 1s ease-in-out;
 
   > img {
     width: 100%;

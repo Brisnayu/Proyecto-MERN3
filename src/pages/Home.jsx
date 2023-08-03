@@ -9,11 +9,14 @@ import FooterSection from "../components/FooterSection/FooterSection";
 import ButtonUI from "../components/UI/ButtonUI/ButtonUI";
 
 const Home = () => {
-  const { user, setUser, password } = useContext(UserAndModalContext);
+  const { user, setUser, password, setPassword } = useContext(UserAndModalContext);
+
+console.log(password);
+console.log(user)
 
   return (
     <main>
-      {!user ? (
+      {password === null ? (
         <Form />
       ) : password === "amigo" ? (
         <>
@@ -21,7 +24,7 @@ const Home = () => {
           <Games />
             <ButtonUI
               className="back-button"
-              funcionality={() => setUser("")}
+              funcionality={() => {setPassword(null), setUser(null)}}
               text="SALIR"
             />
 
@@ -30,14 +33,14 @@ const Home = () => {
       ) : (
         <>
           <AccessDenied
-            img="https://i.pinimg.com/564x/86/86/e2/8686e22fc99e14ec5918f2e3e56a2a41.jpg"
+            img="https://res.cloudinary.com/dx8j6h1rb/image/upload/v1691076686/Proyecto6%2C%20Hub%20de%20Juegos/image-gandalf_py1pwj.jpg"
             alt="image-gandalf"
             text="Acceso denegado, clave incorrecta."
           />
 
           <ButtonUI
             className="basic-button"
-            funcionality={() => setUser("")}
+            funcionality={() => {setPassword(null), setUser(null)}}
             text="¡Reintentar!"
           />
         </>

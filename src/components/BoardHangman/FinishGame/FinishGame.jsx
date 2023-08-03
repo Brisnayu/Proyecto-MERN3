@@ -10,14 +10,14 @@ const FinishGame = () => {
       text={`¡Lo siento, esta vez no lo has logrado! 😣 La palabra secreta es: ${selectedWord.join(
         "",
       )}`}
-      gif="https://i.pinimg.com/originals/58/d7/6d/58d76dcae19b938668508061cec0b749.gif"
+      gif="https://res.cloudinary.com/dx8j6h1rb/image/upload/v1691076979/Proyecto6%2C%20Hub%20de%20Juegos/git-abrazo_z6ah0k.gif"
       alt="gif-hug"
       question="¿Te animas a intentarlo de nuevo? 🤔"
     />
   ) : (
     <ResultHangman
       text="¡Felicidades! Has adivinado la palabra correctamente. Eres genial, ¡bien hecho! 🚀"
-      gif="https://i.pinimg.com/originals/09/94/25/09942513a4ed27dc9a2e6ee9596e4ebe.gif"
+      gif="https://res.cloudinary.com/dx8j6h1rb/image/upload/v1691076980/Proyecto6%2C%20Hub%20de%20Juegos/gif-bailando_hzcj3m.gif"
       alt="gif-winner"
       question="¿Deseas desafiar al juego una vez más? 🤔"
     />

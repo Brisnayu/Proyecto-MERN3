@@ -39,13 +39,13 @@ const BoardHangman = () => {
               <div className="selected-button-hangman">
                 <ButtonSelect
                   className={arrayGameHangman === wordsHangmanRandom && "select"}
-                  imgButton="https://i.pinimg.com/564x/46/7f/80/467f808e34b1230d3e7ad71e797a7af3.jpg"
+                  imgButton="https://res.cloudinary.com/dx8j6h1rb/image/upload/v1691076887/Proyecto6%2C%20Hub%20de%20Juegos/image-letters_fqvpxi.jpg"
                   text="Palabra aleatoria"
                   funcionality={() => setArrayGameHangman(wordsHangmanRandom)}
                 />
                 <ButtonSelect
                   className={arrayGameHangman === wordsHangmanTLOTR && "select"}
-                  imgButton="https://i.pinimg.com/564x/b2/cc/7f/b2cc7f33f3d161fde43e024109fd4311.jpg"
+                  imgButton="https://res.cloudinary.com/dx8j6h1rb/image/upload/v1691076887/Proyecto6%2C%20Hub%20de%20Juegos/image-tlotr_d0w0il.jpg"
                   text="Palabra TLOTR"
                   funcionality={() => setArrayGameHangman(wordsHangmanTLOTR)}
                 />

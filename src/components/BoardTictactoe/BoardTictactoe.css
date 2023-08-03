@@ -3,5 +3,6 @@
   flex-direction: column;
   align-items: center;
   color: var(--color-contrast);
+  animation: reveal 1s ease-in-out;
 }
 

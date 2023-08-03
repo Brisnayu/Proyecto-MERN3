@@ -1,8 +1,12 @@
 import AccessDenied from "../components/AccessDenied/AccessDenied";
 import { NavLink } from "react-router-dom";
 import { ButtonLink } from "../components/UI/ButtonGames";
+import { useContext } from "react";
+import { UserAndModalContext } from "../context/userAndModalContext";
 
 const NotFound = () => {
+  const { setUser } = useContext(UserAndModalContext)
+
   return (
     <main>
       <AccessDenied
@@ -10,8 +14,8 @@ const NotFound = () => {
         alt="gif-not-found"
         text="Lo siento, la página que buscas no está disponible o es incorrecta."
       />
-      <ButtonLink>
-        <NavLink to="/">Volver</NavLink>
+      <ButtonLink onClick={() => setUser("")}>
+        Volver
       </ButtonLink>
     </main>
   );

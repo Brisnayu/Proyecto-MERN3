@@ -1,0 +1,27 @@
+.loader {
+  position: relative;
+  width: 8rem;
+  height: 8rem;
+}
+
+.loader:before,
+.loader:after {
+  content: "";
+  border-radius: 50%;
+  position: absolute;
+  inset: 0;
+  box-shadow: 0 0 10px 2px var(--color-terciary) inset;
+}
+.loader:after {
+  box-shadow: 0 10px 0 var(--color-secondary) inset;
+  animation: rotate 2s linear infinite;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
