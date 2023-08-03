@@ -74,7 +74,7 @@ const BoardHangman = () => {
               <ContainerButtonsFinish
                 restart={() => {
                   dispatch({ type: "REINICIAR_JUEGO", arrayGameHangman }),
-                  dispatch({ type: "CREAR_ARRAY_GAME" });
+                    dispatch({ type: "CREAR_ARRAY_GAME" });
                 }}
                 exit={() => dispatch({ type: "SALIR_JUEGO" })}
               />

@@ -9,24 +9,27 @@ import FooterSection from "../components/FooterSection/FooterSection";
 import ButtonUI from "../components/UI/ButtonUI/ButtonUI";
 
 const Home = () => {
-  const { user, setUser, password, setPassword } = useContext(UserAndModalContext);
+  const { setUser, password, setPassword, loginLocalStorage } =
+    useContext(UserAndModalContext);
 
-console.log(password);
-console.log(user)
+  const signOut = () => {
+    localStorage.clear();
+    location.reload();
+  };
 
   return (
     <main>
       {password === null ? (
         <Form />
-      ) : password === "amigo" ? (
+      ) : loginLocalStorage === true ? (
         <>
           <HeaderSection text="Selecciona uno de los juegos" />
           <Games />
-            <ButtonUI
-              className="back-button"
-              funcionality={() => {setPassword(null), setUser(null)}}
-              text="SALIR"
-            />
+          <ButtonUI
+            className="back-button"
+            funcionality={() => signOut()}
+            text="Cerrar sesión"
+          />
 
           <FooterSection />
         </>
@@ -40,7 +43,9 @@ console.log(user)
 
           <ButtonUI
             className="basic-button"
-            funcionality={() => {setPassword(null), setUser(null)}}
+            funcionality={() => {
+              setPassword(null), setUser(null);
+            }}
             text="¡Reintentar!"
           />
         </>

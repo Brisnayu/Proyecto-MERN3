@@ -11,22 +11,37 @@ const ContainerAnswers = styled.div`
 `;
 
 const HangmanAnswers = () => {
-  const { arrayGame } = useContext(hangmanContext);
+  const { arrayGame, selectedWord, chance } = useContext(hangmanContext);
 
   return (
     <ContainerAnswers>
-      {arrayGame.length > 0 &&
-        arrayGame.map((letter) => {
-          if (letter === null) {
-            return <ButtonHangman key={uuidv4()}>{letter}</ButtonHangman>;
-          } else {
-            return (
-              <ButtonHangman key={uuidv4()} style={{ color: "var(--color-pointer)" }}>
-                {letter}
-              </ButtonHangman>
-            );
-          }
-        })}
+      {chance > 0 ? (
+        <>
+          {arrayGame.length > 0 &&
+            arrayGame.map((letter) => {
+              if (letter === null) {
+                return <ButtonHangman key={uuidv4()}>{letter}</ButtonHangman>;
+              } else {
+                return (
+                  <ButtonHangman key={uuidv4()} style={{ color: "var(--color-pointer)" }}>
+                    {letter}
+                  </ButtonHangman>
+                );
+              }
+            })}
+        </>
+      ) : (
+        <>
+          {selectedWord.length > 0 &&
+            selectedWord.map((letter) => {
+              return (
+                <ButtonHangman key={uuidv4()} style={{ color: "var(--color-pointer)" }}>
+                  {letter}
+                </ButtonHangman>
+              );
+            })}
+        </>
+      )}
     </ContainerAnswers>
   );
 };

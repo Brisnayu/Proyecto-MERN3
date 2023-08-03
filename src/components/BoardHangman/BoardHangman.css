@@ -10,6 +10,7 @@
 .container-letter {
   width: 80%;
   text-align: center;
+  animation: reveal 1s ease-in-out
 }
 
 .button-selected {

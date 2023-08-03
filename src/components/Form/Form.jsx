@@ -4,8 +4,8 @@ import { UserAndModalContext } from "../../context/userAndModalContext";
 import ButtonUI from "../UI/ButtonUI/ButtonUI";
 
 const Form = () => {
-  const { user, setUser, setPassword, password } = useContext(UserAndModalContext);
-  const [inputValue, setInputValue] = useState("");
+  const { user, setUser, setPassword, setLoginLocalStorage } =
+    useContext(UserAndModalContext);
   const [inputPassword, setInputPassword] = useState("");
 
   const getUser = (event) => setUser(event.target.value);
@@ -13,12 +13,12 @@ const Form = () => {
 
   const login = (event) => {
     event.preventDefault();
-setPassword(inputPassword);
-console.log("hola?");
+    setPassword(inputPassword);
+
     if (inputPassword === "amigo") {
-      
       localStorage.setItem("user", user);
-      console.log("DENTRO DEL IF");
+      localStorage.setItem("password", "amigo");
+      setLoginLocalStorage(true);
     } else {
       setPassword(inputPassword);
     }
@@ -64,6 +64,3 @@ console.log("hola?");
 };
 
 export default Form;
-// () => {
-//               setUser(inputValue), setPassword(inputPassword);
-//             }

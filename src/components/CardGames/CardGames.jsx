@@ -1,5 +1,5 @@
-import { NavLink } from "react-router-dom";
 import "./CardGames.css";
+import { NavLink } from "react-router-dom";
 import { ButtonLink } from "../UI/ButtonGames";
 
 const CardGames = ({ title, subtitle, descrip, link, src, alt }) => {

@@ -40,9 +40,6 @@ const HangmanInit = () => {
   const { chance, wrongLetters, selectedWord, selectedLetters, arrayGame, dispatch } =
     useContext(hangmanContext);
 
-    console.log("en HANGMANINIT", arrayGame)
-    console.log("en HANGMANINIT", selectedWord)
-
   return (
     <>
       <h2>Te quedan {chance} intentos</h2>
