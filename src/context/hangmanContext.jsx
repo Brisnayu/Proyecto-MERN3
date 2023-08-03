@@ -13,7 +13,7 @@ const HangmanContextProvider = ({ children }) => {
     selectedWord,
     arrayGame,
     selectedLetters,
-    ready
+    ready,
   } = state;
 
   return (

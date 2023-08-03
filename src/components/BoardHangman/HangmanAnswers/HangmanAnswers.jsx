@@ -1,8 +1,8 @@
+import { ButtonHangman } from "../../UI/ButtonGames";
+import { hangmanContext } from "../../../context/hangmanContext";
+import { styled } from "styled-components";
 import { useContext } from "react";
 import { v4 as uuidv4 } from "uuid";
-import { styled } from "styled-components";
-import { hangmanContext } from "../../../context/hangmanContext";
-import { ButtonHangman } from "../../UI/ButtonGames";
 
 const ContainerAnswers = styled.div`
   display: flex;

@@ -1,12 +1,12 @@
 import { useContext } from "react";
-import Form from "../components/Form/Form";
 import { UserAndModalContext } from "../context/userAndModalContext";
-import AccessDenied from "../components/AccessDenied/AccessDenied";
-import Games from "../components/Games/Games";
 
-import HeaderSection from "../components/HeaderSection/HeaderSection";
-import FooterSection from "../components/FooterSection/FooterSection";
+import AccessDenied from "../components/AccessDenied/AccessDenied";
 import ButtonUI from "../components/UI/ButtonUI/ButtonUI";
+import FooterSection from "../components/FooterSection/FooterSection";
+import Form from "../components/Form/Form";
+import Games from "../components/Games/Games";
+import HeaderSection from "../components/HeaderSection/HeaderSection";
 
 const Home = () => {
   const { setUser, password, setPassword, loginLocalStorage } =

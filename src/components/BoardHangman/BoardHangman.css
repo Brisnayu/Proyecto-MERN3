@@ -10,7 +10,7 @@
 .container-letter {
   width: 80%;
   text-align: center;
-  animation: reveal 1s ease-in-out
+  animation: reveal 1s ease-in-out;
 }
 
 .button-selected {
@@ -45,9 +45,8 @@
 }
 
 @media screen and (max-width: 768px) {
-.selected-button-hangman {
-  display: flex;
-  flex-direction: column;
-}
-
+  .selected-button-hangman {
+    display: flex;
+    flex-direction: column;
+  }
 }

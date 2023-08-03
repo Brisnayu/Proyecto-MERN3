@@ -1,8 +1,9 @@
 import { Modal, Typography } from "@mui/material";
 import { styled } from "styled-components";
-import { v4 as uuidv4 } from "uuid";
 import { useContext } from "react";
 import { UserAndModalContext } from "../../context/userAndModalContext";
+import { v4 as uuidv4 } from "uuid";
+
 import ButtonUI from "../UI/ButtonUI/ButtonUI";
 
 export const ContainerModal = styled.div`

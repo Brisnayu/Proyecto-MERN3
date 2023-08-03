@@ -1,6 +1,7 @@
+import "./FooterSection.css";
+
 import { SocialNetwork } from "../../functions/SocialNetwork";
 import { v4 as uuidv4 } from "uuid";
-import "./FooterSection.css";
 
 const FooterSection = () => {
   return (

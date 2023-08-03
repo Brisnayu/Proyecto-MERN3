@@ -4,8 +4,8 @@ export const INITIAL_STATE_TIC_TAC_TOE = {
   winnerX: 0,
   winnerO: 0,
   tied: 0,
-  openWinner: false, //GANADOR!!! open1
-  openTied: false, //EMPATE!!! open2
+  openWinner: false,
+  openTied: false,
   turn: "",
   winner: false,
 };

@@ -1,18 +1,20 @@
 import "./BoardSudoku.css";
-import { useContext, useState } from "react";
-import GameInit from "../GameInit/GameInit";
-import ArraySudoku from "./ArraySudoku/ArraySudoku";
-import MessageAlert from "./MessageAlert/MessageAlert";
+
 import { equality, readyComparation } from "../../utils/FunctionsSudoku";
-import AlertSudoku from "./AlertSudoku/AlertSudoku";
-import { sudokuContext } from "../../context/sudokuContext";
-import ResolvedSudoku from "./ArraySudoku/ResolvedSudoku";
-import ModalInformation from "../ModalInformation/ModalInformation";
 import { RulesPlaySudoku } from "../../functions/RulesGames";
+import { sudokuContext } from "../../context/sudokuContext";
+import { useContext, useState } from "react";
 import { UserAndModalContext } from "../../context/userAndModalContext";
+
+import AlertSudoku from "./AlertSudoku/AlertSudoku";
+import ArraySudoku from "./ArraySudoku/ArraySudoku";
 import ButtonUI from "../UI/ButtonUI/ButtonUI";
 import ContainerButtonsFinish from "../ContainerButtons/ContainerButtonsFinish";
 import ContainerButtonsInitial from "../ContainerButtons/ContainerButtonsInitial";
+import GameInit from "../GameInit/GameInit";
+import MessageAlert from "./MessageAlert/MessageAlert";
+import ModalInformation from "../ModalInformation/ModalInformation";
+import ResolvedSudoku from "./ArraySudoku/ResolvedSudoku";
 
 const BoardSudoku = () => {
   const { solution, comprobation, casillas, incomplete, dispatch, originalSudokuBoard } =

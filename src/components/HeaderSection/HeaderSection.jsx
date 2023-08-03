@@ -1,7 +1,7 @@
-import { UserAndModalContext } from "../../context/userAndModalContext";
 import "./HeaderSection.css";
-import { useContext } from "react";
 
+import { useContext } from "react";
+import { UserAndModalContext } from "../../context/userAndModalContext";
 
 const HeaderSection = ({ text }) => {
   const { user } = useContext(UserAndModalContext);

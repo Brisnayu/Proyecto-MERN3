@@ -1,5 +1,5 @@
-import ContainerButtons from "../components/ContainerButtons/ContainerButtonBack";
 import BoardTictactoe from "../components/BoardTictactoe/BoardTictactoe";
+import ContainerButtons from "../components/ContainerButtons/ContainerButtonBack";
 import TicTacToeContextProvider from "../context/tictactoeContext";
 
 const Tictactoe = () => {

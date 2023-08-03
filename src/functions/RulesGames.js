@@ -18,7 +18,7 @@ export const RulesPlayHangman = [
   "El juego continúa hasta que adivines la palabra completa o se complete el dibujo del ahorcado.",
   "Ten cuidado, ¡tienes un número limitado de intentos antes de perder el juego!",
   "Recuerda, las letras propuestas pueden ser mayúsculas o minúsculas, pero solo se permite una letra por turno.",
-  "¡Diviértete y desafía tus habilidades para descubrir la palabra oculta en el juego del ahorcado!"
+  "¡Diviértete y desafía tus habilidades para descubrir la palabra oculta en el juego del ahorcado!",
 ];
 
 export const RulesPlaySudoku = [
@@ -32,4 +32,3 @@ export const RulesPlaySudoku = [
   "Verifica cuidadosamente si has cumplido las reglas del Sudoku y si todos los números están correctamente colocados.",
   "Recuerda que no hay una única solución para cada Sudoku, pero todas deben cumplir las reglas establecidas.",
 ];
-

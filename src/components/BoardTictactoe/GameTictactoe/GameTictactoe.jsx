@@ -1,14 +1,16 @@
 import "./GameTictactoe.css";
-import { v4 as uuidv4 } from "uuid";
-import { useContext } from "react";
-import { tictactoeContext } from "../../../context/tictactoeContext";
+
+import { ButtonTicTacToe } from "../../UI/ButtonGames";
 import {
   changedBoardTicTacToe,
   getArraySolutions,
 } from "../../../utils/FunctionsTicTacToe";
-import ScoreTable from "../ScoreTable/ScoreTable";
-import { ButtonTicTacToe } from "../../UI/ButtonGames";
+import { tictactoeContext } from "../../../context/tictactoeContext";
+import { useContext } from "react";
+import { v4 as uuidv4 } from "uuid";
+
 import ContainerButtonsFinish from "../../ContainerButtons/ContainerButtonsFinish";
+import ScoreTable from "../ScoreTable/ScoreTable";
 
 const GameTictactoe = ({ boardTicTacToe, setBoardTicTacToe, originalBoardTicTacToe }) => {
   const { winnerX, winnerO, tied, turn, dispatch } = useContext(tictactoeContext);

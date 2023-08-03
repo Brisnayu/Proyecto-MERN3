@@ -1,8 +1,9 @@
-import { useContext, useState } from "react";
-import { v4 as uuidv4 } from "uuid";
-import { styled } from "styled-components";
-import { hangmanContext } from "../../../context/hangmanContext";
 import { handleButtonLetter } from "../../../utils/FunctionsHangman";
+import { hangmanContext } from "../../../context/hangmanContext";
+import { styled } from "styled-components";
+import { useContext } from "react";
+import { v4 as uuidv4 } from "uuid";
+
 import FinishGame from "../FinishGame/FinishGame";
 
 const AlphabetContainer = styled.div`

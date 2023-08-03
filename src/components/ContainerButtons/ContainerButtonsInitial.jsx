@@ -1,5 +1,6 @@
-import ButtonUI from "../UI/ButtonUI/ButtonUI";
 import { styled } from "styled-components";
+
+import ButtonUI from "../UI/ButtonUI/ButtonUI";
 
 const ButtonsInitial = styled.div`
   display: flex;

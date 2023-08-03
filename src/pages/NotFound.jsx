@@ -1,8 +1,8 @@
-import AccessDenied from "../components/AccessDenied/AccessDenied";
 import { ButtonLink } from "../components/UI/ButtonGames";
 
-const NotFound = () => {
+import AccessDenied from "../components/AccessDenied/AccessDenied";
 
+const NotFound = () => {
   return (
     <main>
       <AccessDenied

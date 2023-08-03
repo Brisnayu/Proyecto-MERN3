@@ -1,17 +1,19 @@
 import "./BoardHangman.css";
-import { useContext, useState } from "react";
-import GameInit from "../GameInit/GameInit";
-import ModalInformation from "../ModalInformation/ModalInformation";
-import { RulesPlayHangman } from "../../functions/RulesGames";
-import HangmanInit from "./HangmanInit/HangmanInit";
-import HangmanAnswers from "./HangmanAnswers/HangmanAnswers";
+
 import { hangmanContext } from "../../context/hangmanContext";
+import { RulesPlayHangman } from "../../functions/RulesGames";
+import { useContext, useState } from "react";
 import { UserAndModalContext } from "../../context/userAndModalContext";
-import ContainerButtonsInitial from "../ContainerButtons/ContainerButtonsInitial";
-import ContainerButtonsFinish from "../ContainerButtons/ContainerButtonsFinish";
 import { wordsHangmanTLOTR, wordsHangmanRandom } from "../../functions/ArrayHangman";
-import ButtonUI from "../UI/ButtonUI/ButtonUI";
+
 import ButtonSelect from "./ButtonSelect/ButtonSelect";
+import ButtonUI from "../UI/ButtonUI/ButtonUI";
+import ContainerButtonsFinish from "../ContainerButtons/ContainerButtonsFinish";
+import ContainerButtonsInitial from "../ContainerButtons/ContainerButtonsInitial";
+import GameInit from "../GameInit/GameInit";
+import HangmanAnswers from "./HangmanAnswers/HangmanAnswers";
+import HangmanInit from "./HangmanInit/HangmanInit";
+import ModalInformation from "../ModalInformation/ModalInformation";
 
 const BoardHangman = () => {
   const { initialGame, ready, dispatch } = useContext(hangmanContext);
