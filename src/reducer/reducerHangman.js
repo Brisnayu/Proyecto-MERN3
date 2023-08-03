@@ -7,6 +7,13 @@ const getWordGame = (valueGame) => {
   return valueGame[positionArray].split("");
 };
 
+const letrasCambiadas = (index, state) => {
+  const letterChange = [...state.selectedLetters];
+  letterChange[index] = 2;
+
+  return letterChange;
+};
+
 export const INITIAL_STATE_HANGMAN = {
   initialGame: false,
   ready: false,
@@ -58,17 +65,10 @@ export const reducerHangman = (state, action) => {
         chance: state.chance - 1,
       };
     case "LETRAS_USADAS":
-      const letrasCambiadas = (index) => {
-        const letterChange = [...state.selectedLetters];
-        letterChange[index] = 2;
-
-        return letterChange;
-      };
-
       return {
         ...state,
         wrongLetters: [...state.wrongLetters, action.letra],
-        selectedLetters: letrasCambiadas(action.index),
+        selectedLetters: letrasCambiadas(action.index, state),
       };
     case "SALIR_JUEGO":
       return {

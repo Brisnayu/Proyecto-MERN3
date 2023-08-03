@@ -1,15 +1,15 @@
 import "./GameTictactoe.css";
 
-import { ButtonTicTacToe } from "../../UI/ButtonGames";
+import { useContext } from "react";
+import { v4 as uuidv4 } from "uuid";
+
+import { tictactoeContext } from "../../../context/tictactoeContext";
 import {
   changedBoardTicTacToe,
   getArraySolutions,
 } from "../../../utils/FunctionsTicTacToe";
-import { tictactoeContext } from "../../../context/tictactoeContext";
-import { useContext } from "react";
-import { v4 as uuidv4 } from "uuid";
-
 import ContainerButtonsFinish from "../../ContainerButtons/ContainerButtonsFinish";
+import { ButtonTicTacToe } from "../../UI/ButtonGames";
 import ScoreTable from "../ScoreTable/ScoreTable";
 
 const GameTictactoe = ({ boardTicTacToe, setBoardTicTacToe, originalBoardTicTacToe }) => {
@@ -31,7 +31,7 @@ const GameTictactoe = ({ boardTicTacToe, setBoardTicTacToe, originalBoardTicTacT
             <article className="container-game-score">
               <div></div>
               <div className="container-score-turn">
-                <h2>Es el turno de "{turn}"</h2>
+                <h2>Es el turno de &quot;{turn}&quot;</h2>
                 <div>
                   <ScoreTable winnerO={winnerO} winnerX={winnerX} tied={tied} />
                 </div>

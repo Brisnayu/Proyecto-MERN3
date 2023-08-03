@@ -1,5 +1,6 @@
-import { Navigate } from "react-router-dom";
 import { useContext } from "react";
+import { Navigate } from "react-router-dom";
+
 import { UserAndModalContext } from "../../context/userAndModalContext";
 
 const RouteInit = ({ children }) => {

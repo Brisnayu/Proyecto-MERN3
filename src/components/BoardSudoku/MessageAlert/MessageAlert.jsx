@@ -1,7 +1,8 @@
 import { Alert, AlertTitle, Box, Collapse } from "@mui/material";
-import { styled } from "styled-components";
-import { sudokuContext } from "../../../context/sudokuContext";
 import { useContext } from "react";
+import { styled } from "styled-components";
+
+import { sudokuContext } from "../../../context/sudokuContext";
 
 const ButtonClose = styled.button`
   border: 0;
@@ -20,9 +21,9 @@ const MessageAlert = ({ severity, title, text, info }) => {
         <Alert
           severity={severity}
           action={
-            <div onClick={() => dispatch({ type: "CERRAR_ALERT" })}>
-              <ButtonClose>X</ButtonClose>
-            </div>
+            <ButtonClose onClick={() => dispatch({ type: "CERRAR_ALERT" })}>
+              X
+            </ButtonClose>
           }
         >
           <AlertTitle>{title}</AlertTitle>

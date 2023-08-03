@@ -1,8 +1,8 @@
 import "./Games.css";
 
-import { ArrayGames } from "../../functions/ArrayGames";
 import { v4 as uuidv4 } from "uuid";
 
+import { ArrayGames } from "../../functions/ArrayGames";
 import CardGames from "../CardGames/CardGames";
 
 const Games = () => {

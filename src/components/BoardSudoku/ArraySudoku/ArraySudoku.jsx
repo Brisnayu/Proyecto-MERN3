@@ -1,10 +1,11 @@
 import "./StylesArraysSudoku.css";
 
-import { getInputValue } from "../../../utils/FunctionsSudoku";
-import { solvepuzzle } from "sudoku";
-import { sudokuContext } from "../../../context/sudokuContext";
 import { useContext, useEffect } from "react";
+import { solvepuzzle } from "sudoku";
 import { v4 as uuidv4 } from "uuid";
+
+import { sudokuContext } from "../../../context/sudokuContext";
+import { getInputValue } from "../../../utils/FunctionsSudoku";
 
 const ArraySudoku = ({ resolutionSudoku, setResolutionSudoku }) => {
   const { resolut, originalSudokuBoard } = useContext(sudokuContext);

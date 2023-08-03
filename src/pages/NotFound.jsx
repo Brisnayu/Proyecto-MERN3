@@ -1,6 +1,5 @@
-import { ButtonLink } from "../components/UI/ButtonGames";
-
 import AccessDenied from "../components/AccessDenied/AccessDenied";
+import { ButtonLink } from "../components/UI/ButtonGames";
 
 const NotFound = () => {
   return (

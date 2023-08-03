@@ -1,10 +1,10 @@
 import "./index.css";
 
+import React, { lazy } from "react";
+import ReactDOM from "react-dom/client";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import App from "./App.jsx";
-import React, { lazy } from "react";
-import ReactDOM from "react-dom/client";
 import RouteInit from "./components/RouteInit/RouteInit.jsx";
 import Spinner from "./components/Spinner/Spinner";
 import UserAndModalContextProvider from "./context/userAndModalContext.jsx";

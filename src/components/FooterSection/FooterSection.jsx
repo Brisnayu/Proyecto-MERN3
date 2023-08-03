@@ -1,7 +1,8 @@
 import "./FooterSection.css";
 
-import { SocialNetwork } from "../../functions/SocialNetwork";
 import { v4 as uuidv4 } from "uuid";
+
+import { SocialNetwork } from "../../functions/SocialNetwork";
 
 const FooterSection = () => {
   return (
@@ -11,7 +12,7 @@ const FooterSection = () => {
       </div>
       <div className="icon-rrss">
         {SocialNetwork.map((rrss) => (
-          <a href={rrss.url} target="_blank" key={uuidv4()}>
+          <a href={rrss.url} target="_blank" key={uuidv4()} rel="noreferrer">
             <img src={rrss.img} alt={rrss.alt} />
           </a>
         ))}

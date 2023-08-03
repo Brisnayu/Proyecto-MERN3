@@ -1,6 +1,7 @@
-import { styled } from "styled-components";
-import { sudokuContext } from "../../../context/sudokuContext";
 import { useContext } from "react";
+import { styled } from "styled-components";
+
+import { sudokuContext } from "../../../context/sudokuContext";
 
 const TextAlert = styled.h3`
   color: var(--color-contrast);

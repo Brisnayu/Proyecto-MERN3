@@ -1,6 +1,6 @@
-import { hangmanContext } from "../../../context/hangmanContext";
 import { useContext } from "react";
 
+import { hangmanContext } from "../../../context/hangmanContext";
 import ResultHangman from "../ResultHangman/ResultHangman";
 
 const FinishGame = () => {

@@ -1,14 +1,14 @@
 import "./BoardTictactoe.css";
 
-import { RulesPlayTicTacToe } from "../../functions/RulesGames";
-import { tictactoeContext } from "../../context/tictactoeContext";
 import { useContext, useState } from "react";
-import { UserAndModalContext } from "../../context/userAndModalContext";
 
+import { tictactoeContext } from "../../context/tictactoeContext";
+import { UserAndModalContext } from "../../context/userAndModalContext";
+import { RulesPlayTicTacToe } from "../../functions/RulesGames";
 import ContainerButtonsInitial from "../ContainerButtons/ContainerButtonsInitial";
 import GameInit from "../GameInit/GameInit";
-import GameTictactoe from "./GameTictactoe/GameTictactoe";
 import ModalInformation from "../ModalInformation/ModalInformation";
+import GameTictactoe from "./GameTictactoe/GameTictactoe";
 import ModalResult from "./ModalResult/ModalResult";
 
 const BoardTictactoe = () => {

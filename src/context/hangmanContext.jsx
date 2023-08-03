@@ -1,4 +1,5 @@
 import { createContext, useReducer } from "react";
+
 import { INITIAL_STATE_HANGMAN, reducerHangman } from "../reducer/reducerHangman";
 
 export const hangmanContext = createContext();

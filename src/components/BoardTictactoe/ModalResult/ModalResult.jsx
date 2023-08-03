@@ -1,6 +1,6 @@
-import { ContainerModal } from "../../ModalInformation/ModalInformation";
 import { Modal } from "@mui/material";
 
+import { ContainerModal } from "../../ModalInformation/ModalInformation";
 import ButtonUI from "../../UI/ButtonUI/ButtonUI";
 
 const ModalResult = ({

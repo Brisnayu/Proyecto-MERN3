@@ -1,6 +1,7 @@
 import "./Form.css";
 
 import { useContext, useState } from "react";
+
 import { UserAndModalContext } from "../../context/userAndModalContext";
 import ButtonUI from "../UI/ButtonUI/ButtonUI";
 
@@ -30,7 +31,7 @@ const Form = () => {
       <section className="first-section">
         <img
           src="https://res.cloudinary.com/dx8j6h1rb/image/upload/v1691076568/Proyecto6%2C%20Hub%20de%20Juegos/puertas-tlotr_bizzz9.jpg"
-          alt="image-the-lord-of-the-rings"
+          alt="the-lord-of-the-rings"
         />
       </section>
       <form className="second-section">
