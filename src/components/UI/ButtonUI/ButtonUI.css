@@ -1,5 +1,6 @@
 .basic-style-button {
   min-width: 8rem;
+  max-width: 20%;
   min-height: 3rem;
   border-radius: 10px;
   font-weight: bold;
